@@ -85,6 +85,7 @@ body {
   background-color: var(--color-sidebar-item);
   margin-bottom: 1rem;
   border-radius: 0.8rem;
+  box-shadow: 1px 1px #333232;
 }
 
 .sidebar__link--active {
@@ -101,12 +102,6 @@ body {
 .sidebar__name {
   margin-left: 0.7rem;
   margin-top: 2px;
-}
-
-.sidebar__namebisnis {
-  display: inline-block;
-  margin-left: 0.7rem;
-  justify-content: center;
 }
 
 .sidebar__link .arrow {
