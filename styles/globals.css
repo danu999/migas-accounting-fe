@@ -29,6 +29,8 @@ body {
   flex-grow: 1;
 }
 
+/* Sidebar */
+
 .sidebar__wrapper {
   position: relative;
 }
@@ -67,23 +69,6 @@ body {
  display: block;
  align-items: center;
  padding-left: 1.3rem;
-}
-
-.rectangle {
-  height: 5px;
-  width: 100%;
-  background-color: #a8a8a8;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
-  margin-top: 0.3rem;
-}
-
-.rectanglee {
-  height: 5px;
-  width: 100%;
-  background-color: #a8a8a8;
-  border-radius: 1rem;
-  margin-bottom: 2rem;
 }
 
 .sidebar__list {

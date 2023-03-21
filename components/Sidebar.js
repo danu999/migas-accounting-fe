@@ -18,7 +18,7 @@ import { CaretDownFilled } from "@ant-design/icons";
 const sidebarItems = [
   {
     name: "Dashboard",
-    href: "/dashboard",
+    href: "/",
     icon: LayoutFilled,
   },
   {
