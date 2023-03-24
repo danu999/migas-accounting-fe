@@ -32,7 +32,7 @@ const GrafikBalok = () => {
     datasets: [
       {
         label: "Neraca - 2023",
-        data: [65, 59, 80, 81, 56, 55, 40, 44, 66, 55, 44, 77],
+        data: [30, 40, 30, 45, 25, 30, 25, 35, 50, 30, 40, 60],
         backgroundColor: "#4c4e4e",
         borderColor: "#ffcf00",
         borderWidth: 2,
