@@ -186,3 +186,10 @@ body {
   display: inline-block;
   margin-top: 0.5rem;
 }
+
+/* All chart */
+.all__chart {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 4rem;
+}

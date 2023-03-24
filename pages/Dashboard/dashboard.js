@@ -1,7 +1,8 @@
+import React from "react";
 import Image from "next/image";
 import Layout from "@/layout/Layout";
-import React from "react";
 import styles from "@/styles/Dashboard.module.css";
+import Chartlabarugi from "@/components/ChartLabarugi.js";
 import { Card, Space, Statistic, Col, Row } from "antd";
 import {
   ArrowUpOutlined,
@@ -164,6 +165,7 @@ const Dashboard = () => {
           </Card>
         </Space>
       </div>
+      <Chartlabarugi />
     </Layout>
   );
 };
