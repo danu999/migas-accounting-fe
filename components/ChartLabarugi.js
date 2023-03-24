@@ -1,3 +1,4 @@
+import React from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -38,7 +39,7 @@ const GrafikLabarugi = () => {
     ],
     datasets: [
       {
-        label: "Laba Rugi",
+        label: "Laba Rugi - 2023",
         data: [
           2000000, 3000000, 2500000, 4000000, 3500000, 6000000, 4000000,
           3000000, 4100000, 3000000, 4000000, 3000000,
@@ -76,8 +77,8 @@ const GrafikLabarugi = () => {
     <div
       className='all__chart'
       style={{
-        width: "700px",
-        height: "500px",
+        width: "600px",
+        height: "400px",
         paddingTop: "7rem",
         marginLeft: "3rem",
       }}

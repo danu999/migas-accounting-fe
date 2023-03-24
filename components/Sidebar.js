@@ -24,12 +24,12 @@ const sidebarItems = [
   },
   {
     name: "Jurnal",
-    href: "/jurnal",
+    href: "/Jurnal/jurnal",
     icon: BookFilled,
   },
   {
     name: "Laporan",
-    href: "/laporan",
+    href: "/Laporan/laporan",
     icon: SnippetsFilled,
   },
   {
