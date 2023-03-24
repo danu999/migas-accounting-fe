@@ -4,6 +4,7 @@ import Layout from "@/layout/Layout";
 import styles from "@/styles/Dashboard.module.css";
 import Chartlabarugi from "@/components/ChartLabarugi.js";
 import Chartneraca from "@/components/ChartNeraca.js";
+import Chartneracalajur from "@/components/ChartNeracalajur.js";
 import { Card, Space, Statistic, Col, Row } from "antd";
 import {
   ArrowUpOutlined,
@@ -168,6 +169,7 @@ const Dashboard = () => {
       </div>
       <Chartlabarugi />
       <Chartneraca />
+      <Chartneracalajur />
     </Layout>
   );
 };
