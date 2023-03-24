@@ -1,5 +1,5 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import { Typography } from "antd";
 import {
   Chart as ChartJS,
@@ -39,31 +39,7 @@ const GrafikNeracaLajur = () => {
       },
     ],
   };
-  const options = {
-    scales: {
-      y: {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    },
-    elements: {
-      point: {
-        radius: 6,
-        borderWidth: 2,
-        borderColor: "black",
-        backgroundColor: "#ffcf00",
-      },
-      line: {
-        tension: 0.2,
-        borderWidth: 2,
-        borderColor: "black",
-        backgroundColor: "#ffcf00",
-        fill: true,
-      },
-    },
-  };
-
+  const options = {};
   return (
     <div
       className='all__chart'
@@ -75,7 +51,7 @@ const GrafikNeracaLajur = () => {
       }}
     >
       <Typography className={styles.typography}>Grafik Neraca Lajur</Typography>
-      <Line data={data} options={options} />
+      <Bar data={data} options={options} />
     </div>
   );
 };

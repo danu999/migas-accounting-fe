@@ -31,24 +31,11 @@ const GrafikArusKas = () => {
     ],
     datasets: [
       {
-        label: "Neraca Lajur satu - 2023",
+        label: "Arus Kas - 2023",
         data: [
           2000000, 3000000, 2500000, 4000000, 3500000, 6000000, 4000000,
           3000000, 4100000, 3000000, 4000000, 3000000,
         ],
-        backgroundColor: "#4c4e4e",
-        borderColor: "#ffcf00",
-        borderWidth: 2,
-      },
-      {
-        label: "Neraca Lajur dua - 2023",
-        data: [
-          3000000, 2000000, 3500000, 3000000, 4500000, 5000000, 3000000,
-          2000000, 3100000, 2000000, 3000000, 2000000,
-        ],
-        backgroundColor: "#ffcf00",
-        borderColor: "#4c4e4e",
-        borderWidth: 2,
       },
     ],
   };
@@ -68,7 +55,7 @@ const GrafikArusKas = () => {
         backgroundColor: "#ffcf00",
       },
       line: {
-        tension: 0.2,
+        tension: 0.3,
         borderWidth: 2,
         borderColor: "black",
         backgroundColor: "#ffcf00",

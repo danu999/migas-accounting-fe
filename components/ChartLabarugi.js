@@ -64,7 +64,7 @@ const GrafikLabarugi = () => {
         backgroundColor: "#ffcf00",
       },
       line: {
-        tension: 0.4,
+        tension: 0.3,
         borderWidth: 2,
         borderColor: "black",
         backgroundColor: "#ffcf00",
