@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -21,7 +20,7 @@ ChartJS.register(
   Tooltip
 );
 
-function GrafikLabarugi() {
+const GrafikLabarugi = () => {
   const data = {
     labels: [
       "Jan",
@@ -65,7 +64,7 @@ function GrafikLabarugi() {
       },
       line: {
         tension: 0.4,
-        borderWidth: 3,
+        borderWidth: 2,
         borderColor: "black",
         backgroundColor: "#ffcf00",
         fill: true,
@@ -87,6 +86,6 @@ function GrafikLabarugi() {
       <Line data={data} options={options}></Line>
     </div>
   );
-}
+};
 
 export default GrafikLabarugi;
