@@ -14,6 +14,7 @@ import { ShopFilled } from "@ant-design/icons";
 import { CarFilled } from "@ant-design/icons";
 import { SlackCircleFilled } from "@ant-design/icons";
 import { CaretDownFilled } from "@ant-design/icons";
+import { CaretUpFilled } from "@ant-design/icons";
 
 const sidebarItems = [
   {
@@ -81,8 +82,6 @@ const Sidebar = () => {
 
   const handleSubMenuClick = () => {
     setSubMenuOpen(!subMenuOpen);
-    const arrow = document.querySelector(".arrow");
-    arrow.classList.toggle("rotate");
   };
 
   return (
@@ -108,7 +107,7 @@ const Sidebar = () => {
                       style={{ cursor: "pointer" }}
                       className={`sidebar__link ${
                         router.pathname === href ? "sidebar__link--active" : ""
-                      } ${subMenuOpen ? "rotate" : ""}`}
+                      }`}
                       onClick={handleSubMenuClick}
                     >
                       <span className='sidebar__icon'>
@@ -116,7 +115,7 @@ const Sidebar = () => {
                       </span>
                       <span className='sidebar__name'>{name}</span>
                       <span className='arrow'>
-                        <CaretDownFilled />
+                        {subMenuOpen ? <CaretUpFilled /> : <CaretDownFilled />}
                       </span>
                     </div>
                     {subMenuOpen && (

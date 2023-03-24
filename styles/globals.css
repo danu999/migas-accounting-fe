@@ -64,7 +64,7 @@ body {
 }
 
 .sidebar__logo-name {
- margin-bottom: 1rem;
+ margin-bottom: 2rem;
  font-size: 1.1rem;
  display: block;
  align-items: center;
@@ -101,7 +101,8 @@ body {
 
 .sidebar__name {
   margin-left: 0.7rem;
-  margin-top: 2px;
+  margin-top: 5px;
+  font-size: 1rem;
 }
 
 .sidebar__link .arrow {
@@ -113,8 +114,8 @@ body {
 }
 
 .arrow {
-  margin-left: 8rem;
+  margin-left: 7.5rem;
   height: 1rem;
-  font-size: 1.5rem;
-  margin-top: 0.2rem;
+  font-size: 1.4rem;
 }
+
