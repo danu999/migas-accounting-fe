@@ -119,3 +119,69 @@ body {
   font-size: 1.4rem;
 }
 
+.sidebar__submenu {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar__submenu li {
+  position: relative;
+}
+
+.sidebar__submenu-link {
+  display: block;
+  align-items: center;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar__submenu-link:hover {
+  background-color: #f2f2f2;
+  border-radius: 0.8rem;
+}
+
+.sidebar__submenu ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* show submenu on hover */
+.sidebar__submenu li:hover > ul {
+  display: block;
+}
+
+/* style submenu links */
+.sidebar__submenu ul li {
+  position: relative;
+}
+
+.sidebar__submenu ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: #080101;
+  text-decoration: none;
+}
+
+/* make submenu items vertical */
+.sidebar__submenu ul li {
+  display: block;
+}
+
+.sidebar__submenu-icon {
+  font-size: 1.2rem;
+}
+
+.sidebar__submenu-name {
+  margin-left: 0.7rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+}

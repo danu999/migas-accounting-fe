@@ -1,5 +1,34 @@
 .header {
-    font-size: 1rem;
-    margin-top: 3rem;
-    margin-left: 2rem;
+  font-size: 1rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
+.card {
+  margin-top: 5.5rem;
+  width: 20rem;
+  height: 12rem;
+  margin-right: 5rem;
+  margin-left: 0.8rem;
+  border-radius: 5%;
+  background: linear-gradient(to bottom right, #ffffff, #e6e5e1);
+  display: inline-block;
+  cursor: pointer;
+}
+
+.kas {
+  margin-left: 4rem;
+  font-size: 1.7rem;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.cardbri__logo {
+  margin-bottom: 2.3rem;
+  border-radius: 10%;
+}
+
+.cardmandiri__logo {
+  margin-bottom: 2.3rem;
+  border-radius: 10%;
 }
