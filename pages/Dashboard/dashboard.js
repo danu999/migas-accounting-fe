@@ -31,7 +31,7 @@ const Dashboard = () => {
             />
             <CreditCardOutlined
               style={{
-                color: "grey",
+                color: "#ffcf00",
                 fontSize: "2.5rem",
                 position: "absolute",
                 top: "1.7rem",
