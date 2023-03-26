@@ -6,7 +6,6 @@ const columns = [
     title: "Nama Akun",
     dataIndex: "namaakun",
     key: "nameakun",
-    // render: text => <a>{text}</a>,
   },
   {
     title: "Bulan ini",
