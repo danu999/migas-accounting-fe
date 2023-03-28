@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { Avatar, Typography } from "antd";
 import { LayoutFilled } from "@ant-design/icons";
 import { BookFilled } from "@ant-design/icons";
 import { SnippetsFilled } from "@ant-design/icons";
@@ -156,6 +157,35 @@ const Sidebar = () => {
               );
             })}
           </ul>
+          <Avatar
+            style={{
+              height: "4rem",
+              width: "4rem",
+              marginLeft: "1rem",
+              marginTop: "3rem",
+              position: "absolute",
+            }}
+            src={"https://i.stack.imgur.com/9Evvf.png?s=256&g=1"}
+          />
+
+          <Typography.Title
+            style={{
+              fontSize: "1.3rem",
+              marginLeft: "6rem",
+              marginTop: "4.2rem",
+            }}
+          >
+            Danisha Mavis Saputri
+          </Typography.Title>
+          <Typography
+            style={{
+              fontSize: "15px",
+              marginLeft: "6rem",
+              marginRight: "5rem",
+            }}
+          >
+            Bendahara
+          </Typography>
         </aside>
       </div>
     </div>
