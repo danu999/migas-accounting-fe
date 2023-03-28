@@ -154,6 +154,10 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.user {
+  font-family: "Poppins", sans-serif;
+}
+
 /* show submenu on hover */
 .sidebar__submenu li:hover > ul {
   display: block;

@@ -172,6 +172,7 @@ const Sidebar = () => {
           />
 
           <Typography.Title
+            className='user'
             style={{
               fontSize: "1.3rem",
               marginLeft: "6rem",
@@ -181,6 +182,7 @@ const Sidebar = () => {
             Danisha Mavis Saputri
           </Typography.Title>
           <Typography
+            className='user'
             style={{
               fontSize: "15px",
               marginLeft: "6rem",
@@ -193,7 +195,7 @@ const Sidebar = () => {
             type='primary'
             icon={<LogoutOutlined />}
             style={{
-              height: "30px",
+              height: "35px",
               width: "100px",
               fontSize: "13px",
               backgroundColor: "#ccaa44",
