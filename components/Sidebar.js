@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Avatar, Typography } from "antd";
+import { Avatar, Typography, Button } from "antd";
 import { LayoutFilled } from "@ant-design/icons";
 import { BookFilled } from "@ant-design/icons";
 import { SnippetsFilled } from "@ant-design/icons";
@@ -16,6 +16,7 @@ import { CarFilled } from "@ant-design/icons";
 import { SlackCircleFilled } from "@ant-design/icons";
 import { CaretDownFilled } from "@ant-design/icons";
 import { CaretUpFilled } from "@ant-design/icons";
+import { LogoutOutlined } from "@ant-design/icons";
 
 const sidebarItems = [
   {
@@ -165,7 +166,9 @@ const Sidebar = () => {
               marginTop: "3rem",
               position: "absolute",
             }}
-            src={"https://i.stack.imgur.com/9Evvf.png?s=256&g=1"}
+            src={
+              "http://pm1.narvii.com/6312/5f2d6e748051cbf40c6bd388077684c4c279e577_00.jpg"
+            }
           />
 
           <Typography.Title
@@ -186,6 +189,20 @@ const Sidebar = () => {
           >
             Bendahara
           </Typography>
+          <Button
+            type='primary'
+            icon={<LogoutOutlined />}
+            style={{
+              height: "30px",
+              width: "100px",
+              fontSize: "13px",
+              backgroundColor: "#ccaa44",
+              marginLeft: "100px",
+              marginTop: "10px",
+            }}
+          >
+            Logout
+          </Button>
         </aside>
       </div>
     </div>
