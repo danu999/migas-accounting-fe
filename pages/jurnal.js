@@ -48,6 +48,7 @@ const Jurnal = () => {
   const cancel = () => {
     setEditRowKey("");
   };
+
   const save = async key => {
     try {
       const row = await form.validateFields();
@@ -123,7 +124,7 @@ const Jurnal = () => {
               <span>
                 <Space size='middle'>
                   <Button
-                    onClick={e => save(record.key)}
+                    onClick={() => save(record.key)}
                     type='primary'
                     style={{ marginRight: 8 }}
                   >
