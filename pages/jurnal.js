@@ -49,9 +49,9 @@ const Jurnal = () => {
     setEditRowKey("");
   };
 
-  const save = async key => {
+  const save = key => {
     try {
-      const row = await form.validateFields();
+      const row = form.validateFields();
       const newData = [...modifiedData];
       const index = newData.findIndex(item => key === item.key);
       if (index > -1) {
@@ -59,6 +59,10 @@ const Jurnal = () => {
         newData.splice(index, 1, { ...item, ...row });
         setGridData(newData);
         setEditRowKey("");
+      } else {
+        newData.push(row);
+        setGridData(newData);
+        setEditingKey("");
       }
     } catch (error) {
       console.log("error", error);
