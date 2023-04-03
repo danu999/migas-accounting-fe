@@ -58,8 +58,11 @@ const Jurnal = () => {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
         setGridData(newData);
-        setModifiedData(newData);
         setEditRowKey("");
+      } else {
+        newData.push(row);
+        setGridData(newData);
+        setEditingKey("");
       }
     } catch (error) {
       console.log("error", error);
