@@ -35,34 +35,31 @@ const Jurnal = () => {
     message: isEmpty(body) ? item.message : body,
   }));
 
+  console.log("modifiedData", modifiedData);
+
   const handleDelete = value => {
     const dataSource = [...modifiedData];
     const filteredData = dataSource.filter(item => item.id !== value.id);
     setGridData(filteredData);
   };
 
-  const isEditing = record => {
-    return record.key === editRowKey;
-  };
+  const isEditing = record => record.key === editRowKey;
 
   const cancel = () => {
     setEditRowKey("");
   };
 
-  const save = key => {
+  const save = async key => {
     try {
-      const row = form.validateFields();
+      const row = await form.validateFields();
       const newData = [...modifiedData];
       const index = newData.findIndex(item => key === item.key);
       if (index > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
         setGridData(newData);
+        setModifiedData(newData);
         setEditRowKey("");
-      } else {
-        newData.push(row);
-        setGridData(newData);
-        setEditingKey("");
       }
     } catch (error) {
       console.log("error", error);
@@ -88,25 +85,25 @@ const Jurnal = () => {
       title: "Name",
       dataIndex: "name",
       align: "center",
-      editTable: true,
+      editable: true,
     },
     {
       title: "Email",
       dataIndex: "email",
       align: "center",
-      editTable: true,
+      editable: true,
     },
     {
       title: "Age",
       dataIndex: "age",
       align: "center",
-      editTable: false,
+      editable: false,
     },
     {
       title: "Message",
       dataIndex: "message",
       align: "center",
-      editTable: true,
+      editable: true,
     },
     {
       title: "Action",
@@ -117,6 +114,7 @@ const Jurnal = () => {
         return modifiedData.length >= 1 ? (
           <Space>
             <Popconfirm
+              disabled={editable}
               title='Are you sure want to delete ?'
               onConfirm={() => handleDelete(record)}
             >
@@ -151,7 +149,7 @@ const Jurnal = () => {
   ];
 
   const mergedColumns = columns.map(col => {
-    if (!col.editTable) {
+    if (!col.editable) {
       return col;
     }
 
@@ -171,6 +169,7 @@ const Jurnal = () => {
     dataIndex,
     title,
     record,
+    index,
     children,
     ...restProps
   }) => {
