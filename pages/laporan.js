@@ -14,8 +14,11 @@ const Laporan = () => {
             style={{
               boxShadow: "1px 1px 5px 1px #A9A9A9",
               position: "relative",
+              background: "linear-gradient(#ffcf07, #e9ff23)",
             }}
-          ></Card>
+          >
+            <p className={styles.title}>Laporan Neraca</p>
+          </Card>
         </Space>
         <Space direction='horizontal'>
           <Card
@@ -23,8 +26,11 @@ const Laporan = () => {
             style={{
               boxShadow: "1px 1px 5px 1px #A9A9A9",
               position: "relative",
+              background: "linear-gradient(#ffa80f, #fbff13)",
             }}
-          ></Card>
+          >
+            <p className={styles.title}>Laporan Neraca Lajur</p>
+          </Card>
         </Space>
         <Space direction='horizontal'>
           <Card
@@ -32,8 +38,47 @@ const Laporan = () => {
             style={{
               boxShadow: "1px 1px 5px 1px #A9A9A9",
               position: "relative",
+              background: "linear-gradient(#ffd400, #cfdb20)",
             }}
-          ></Card>
+          >
+            <p className={styles.title}>Laporan Laba Rugi</p>
+          </Card>
+        </Space>
+        <Space direction='horizontal'>
+          <Card
+            className={styles.card}
+            style={{
+              boxShadow: "1px 1px 5px 1px #A9A9A9",
+              position: "relative",
+              background: "linear-gradient(#ffcf07, #e9ff23)",
+            }}
+          >
+            <p className={styles.title}>Laporan Simpan Pinjam</p>
+          </Card>
+        </Space>
+        <Space direction='horizontal'>
+          <Card
+            className={styles.card}
+            style={{
+              boxShadow: "1px 1px 5px 1px #A9A9A9",
+              position: "relative",
+              background: "linear-gradient(#ffa80f, #fbff13)",
+            }}
+          >
+            <p className={styles.title}>Laporan Assets</p>
+          </Card>
+        </Space>
+        <Space direction='horizontal'>
+          <Card
+            className={styles.card}
+            style={{
+              boxShadow: "1px 1px 5px 1px #A9A9A9",
+              position: "relative",
+              background: "linear-gradient(#ffd400, #cfdb20)",
+            }}
+          >
+            <p className={styles.title}>Laporan Sub Bisnis</p>
+          </Card>
         </Space>
       </div>
     </Layout>

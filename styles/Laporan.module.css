@@ -10,11 +10,22 @@
     font-size: 1.2rem;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    font-family: "Poppins", sans-serif;
 }
 
 .card {
     width: 20rem;
     height: 30rem;
     cursor: pointer;
-    margin-right: 5rem;
+    margin-right: 7rem;
+    margin-bottom: 7rem;
+    border-radius: 4%;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-family: "Poppins", sans-serif;
+    align-items: center;
+    margin-top: 12rem;
+    margin-left: 2.2rem;
 }
