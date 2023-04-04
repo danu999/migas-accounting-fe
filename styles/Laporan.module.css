@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
+.header {
+  font-size: 1rem;
+  margin-top: 3rem;
+  margin-left: 2rem;
+}
+
+.typography {
+    font-size: 1.2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    width: 20rem;
+    height: 30rem;
+    cursor: pointer;
+    margin-right: 5rem;
+}
