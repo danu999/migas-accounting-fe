@@ -1,4 +1,5 @@
 import Layout from "@/layout/Layout";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
@@ -202,15 +203,17 @@ const DataAkun = () => {
       <div className={styles.header}>
         <h1>Data Akun</h1>
         <div className={styles.button}>
-          <Button
-            style={{
-              backgroundColor: "#ffcf00",
-              marginTop: "4rem",
-              marginBottom: "3rem",
-            }}
-          >
-            Buat Akun Baru
-          </Button>
+          <Link href='/buatakun'>
+            <Button
+              style={{
+                backgroundColor: "#ffcf00",
+                marginTop: "4rem",
+                marginBottom: "3rem",
+              }}
+            >
+              Buat Akun Baru
+            </Button>
+          </Link>
           <Table
             columns={columns}
             dataSource={data}
