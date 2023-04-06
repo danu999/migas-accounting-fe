@@ -15,6 +15,7 @@ const Jurnal = () => {
   const [searchedColumn, setSearchedColumn] = useState("");
   const [form] = Form.useForm();
   const searchInput = useRef(null);
+
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
@@ -25,6 +26,7 @@ const Jurnal = () => {
     clearFilters();
     setSearchText("");
   };
+
   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({
       setSelectedKeys,
@@ -59,7 +61,7 @@ const Jurnal = () => {
             icon={<SearchOutlined />}
             size='small'
             style={{
-              width: 90,
+              width: 30,
             }}
           >
             Search
@@ -68,7 +70,7 @@ const Jurnal = () => {
             onClick={() => clearFilters && handleReset(clearFilters)}
             size='small'
             style={{
-              width: 90,
+              width: 50,
             }}
           >
             Reset
@@ -116,7 +118,7 @@ const Jurnal = () => {
       searchedColumn === dataIndex ? (
         <Highlighter
           highlightStyle={{
-            backgroundColor: "#ffc069",
+            backgroundColor: "#ffcf00",
             padding: 0,
           }}
           searchWords={[searchText]}

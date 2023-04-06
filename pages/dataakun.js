@@ -155,7 +155,7 @@ const DataAkun = () => {
       searchedColumn === dataIndex ? (
         <Highlighter
           highlightStyle={{
-            backgroundColor: "#ffc069",
+            backgroundColor: "#ffcf00",
             padding: 0,
           }}
           searchWords={[searchText]}

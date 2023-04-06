@@ -43,7 +43,7 @@ const BuatAkun = () => {
                       width: 300,
                       height: 35,
                       marginLeft: 15,
-                      fontSize: 20,
+                      fontSize: 15,
                     }}
                     placeholder='Silahkan Input Kode Akun'
                   />
@@ -67,7 +67,7 @@ const BuatAkun = () => {
                       width: 300,
                       height: 35,
                       marginLeft: 15,
-                      fontSize: 20,
+                      fontSize: 15,
                     }}
                     placeholder='Silahkan Input Nama Akun'
                   />
@@ -81,7 +81,7 @@ const BuatAkun = () => {
                   width: 300,
                   height: 50,
                   marginLeft: 15,
-                  fontSize: 20,
+                  fontSize: 15,
                 }}
               >
                 <Select placeholder='Pilih Kategori'>
@@ -106,7 +106,7 @@ const BuatAkun = () => {
                       width: 300,
                       height: 35,
                       marginLeft: 15,
-                      fontSize: 20,
+                      fontSize: 15,
                     }}
                     placeholder='Silahkan Input Saldo Awal'
                   />
