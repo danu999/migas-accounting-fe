@@ -1,15 +1,132 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Table, Popconfirm, Button, Space, Form, Input } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import { isEmpty } from "lodash";
 import axios from "axios";
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Jurnal.module.css";
+import Highlighter from "react-highlight-words";
 
 const Jurnal = () => {
   const [gridData, setGridData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [editRowKey, setEditRowKey] = useState("");
+  const [searchText, setSearchText] = useState("");
+  const [searchedColumn, setSearchedColumn] = useState("");
   const [form] = Form.useForm();
+  const searchInput = useRef(null);
+  const handleSearch = (selectedKeys, confirm, dataIndex) => {
+    confirm();
+    setSearchText(selectedKeys[0]);
+    setSearchedColumn(dataIndex);
+  };
+
+  const handleReset = clearFilters => {
+    clearFilters();
+    setSearchText("");
+  };
+  const getColumnSearchProps = dataIndex => ({
+    filterDropdown: ({
+      setSelectedKeys,
+      selectedKeys,
+      confirm,
+      clearFilters,
+      close,
+    }) => (
+      <div
+        style={{
+          padding: 8,
+        }}
+        onKeyDown={e => e.stopPropagation()}
+      >
+        <Input
+          ref={searchInput}
+          placeholder={`Search ${dataIndex}`}
+          value={selectedKeys[0]}
+          onChange={e =>
+            setSelectedKeys(e.target.value ? [e.target.value] : [])
+          }
+          onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+          style={{
+            marginBottom: 8,
+            display: "block",
+          }}
+        />
+        <Space>
+          <Button
+            type='primary'
+            onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+            icon={<SearchOutlined />}
+            size='small'
+            style={{
+              width: 90,
+            }}
+          >
+            Search
+          </Button>
+          <Button
+            onClick={() => clearFilters && handleReset(clearFilters)}
+            size='small'
+            style={{
+              width: 90,
+            }}
+          >
+            Reset
+          </Button>
+          <Button
+            type='link'
+            size='small'
+            onClick={() => {
+              confirm({
+                closeDropdown: false,
+              });
+              setSearchText(selectedKeys[0]);
+              setSearchedColumn(dataIndex);
+            }}
+          >
+            Filter
+          </Button>
+          <Button
+            type='link'
+            size='small'
+            onClick={() => {
+              close();
+            }}
+          >
+            close
+          </Button>
+        </Space>
+      </div>
+    ),
+    filterIcon: filtered => (
+      <SearchOutlined
+        style={{
+          color: filtered ? "#1890ff" : undefined,
+        }}
+      />
+    ),
+    onFilter: (value, record) =>
+      record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+    onFilterDropdownOpenChange: visible => {
+      if (visible) {
+        setTimeout(() => searchInput.current?.select(), 100);
+      }
+    },
+    render: text =>
+      searchedColumn === dataIndex ? (
+        <Highlighter
+          highlightStyle={{
+            backgroundColor: "#ffc069",
+            padding: 0,
+          }}
+          searchWords={[searchText]}
+          autoEscape
+          textToHighlight={text ? text.toString() : ""}
+        />
+      ) : (
+        text
+      ),
+  });
 
   useEffect(() => {
     loadData();
@@ -18,27 +135,14 @@ const Jurnal = () => {
   const loadData = async () => {
     setLoading(true);
     const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/comments"
+      "http://192.168.254.113:8000/api/journals"
     );
     setGridData(response.data);
     setLoading(false);
   };
 
-  const dataWithAge = gridData.map(item => ({
-    ...item,
-    age: Math.floor(Math.random() * 6) + 20,
-  }));
-
-  const modifiedData = dataWithAge.map(({ body, ...item }) => ({
-    ...item,
-    key: item.id,
-    message: isEmpty(body) ? item.message : body,
-  }));
-
-  console.log("modifiedData", modifiedData);
-
   const handleDelete = value => {
-    const dataSource = [...modifiedData];
+    const dataSource = [...gridData];
     const filteredData = dataSource.filter(item => item.id !== value.id);
     setGridData(filteredData);
   };
@@ -52,7 +156,7 @@ const Jurnal = () => {
   const save = async key => {
     try {
       const row = await form.validateFields();
-      const newData = [...modifiedData];
+      const newData = [...gridData];
       const index = newData.findIndex(item => key === item.key);
       if (index > -1) {
         const item = newData[index];
@@ -71,9 +175,10 @@ const Jurnal = () => {
 
   const edit = record => {
     form.setFieldsValue({
-      name: "",
-      email: "",
-      message: "",
+      no: "",
+      date: "",
+      description: "",
+      value: "",
       ...record,
     });
     setEditRowKey(record.key);
@@ -83,30 +188,35 @@ const Jurnal = () => {
     {
       title: "ID",
       dataIndex: "id",
+      ...getColumnSearchProps("id"),
     },
     {
-      title: "Name",
-      dataIndex: "name",
+      title: "No. Referensi",
+      dataIndex: "no",
       align: "center",
       editable: true,
+      ...getColumnSearchProps("no"),
     },
     {
-      title: "Email",
-      dataIndex: "email",
+      title: "Tanggal",
+      dataIndex: "date",
       align: "center",
       editable: true,
+      ...getColumnSearchProps("date"),
     },
     {
-      title: "Age",
-      dataIndex: "age",
-      align: "center",
-      editable: false,
-    },
-    {
-      title: "Message",
-      dataIndex: "message",
+      title: "Deskripsi",
+      dataIndex: "description",
       align: "center",
       editable: true,
+      ...getColumnSearchProps("description"),
+    },
+    {
+      title: "Nilai",
+      dataIndex: "value",
+      align: "center",
+      editable: true,
+      ...getColumnSearchProps("value"),
     },
     {
       title: "Action",
@@ -114,7 +224,7 @@ const Jurnal = () => {
       align: "center",
       render: (_, record) => {
         const editable = isEditing(record);
-        return modifiedData.length >= 1 ? (
+        return gridData.length >= 1 ? (
           <Space>
             <Popconfirm
               disabled={editable}
@@ -212,7 +322,7 @@ const Jurnal = () => {
                 cell: EditableCell,
               },
             }}
-            dataSource={modifiedData}
+            dataSource={gridData}
             bordered
             loading={loading}
             style={{

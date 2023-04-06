@@ -1,6 +1,7 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Buatakun.module.css";
-import { Form, Input, Space, Select } from "antd";
+import Link from "next/link";
+import { Form, Input, Space, Select, Button } from "antd";
 
 const BuatAkun = () => {
   const { Option } = Select;
@@ -11,91 +12,134 @@ const BuatAkun = () => {
     <Layout>
       <div className={styles.header}>
         <h1>Buat Akun Baru</h1>
-        <Form
-          name='complex-form'
-          onFinish={onFinish}
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          style={{
-            maxWidth: 600,
-          }}
-        >
-          <Form.Item label='Kode Akun'>
-            <Space>
-              <Form.Item
-                name='kodeakun'
-                noStyle
-                rules={[
-                  {
-                    required: true,
-                    message: "Code account is required",
-                  },
-                ]}
-              >
-                <Input
-                  style={{
-                    width: 160,
-                  }}
-                  placeholder='Please input kode akun'
-                />
-              </Form.Item>
-            </Space>
-          </Form.Item>
-          <Form.Item label='Nama Akun'>
-            <Space>
-              <Form.Item
-                name='namaakun'
-                noStyle
-                rules={[
-                  {
-                    required: true,
-                    message: "Name Account is required",
-                  },
-                ]}
-              >
-                <Input
-                  style={{
-                    width: 160,
-                  }}
-                  placeholder='Please input nama akun'
-                />
-              </Form.Item>
-            </Space>
-          </Form.Item>
-          <Form.Item label='Kategori'>
-            <Form.Item name={["kategori"]} noStyle>
-              <Select placeholder='Select Kategori'>
-                <Option value='activalancar'>ACTIVA LANCAR</Option>
-                <Option value='kewajiban'>KEWAJIBAN</Option>
-              </Select>
+        <div className={styles.form}>
+          <Form
+            name='complex-form'
+            onFinish={onFinish}
+            labelCol={{
+              span: 2,
+            }}
+            wrapperCol={{
+              span: 20,
+            }}
+            style={{
+              maxWidth: 1000,
+            }}
+          >
+            <Form.Item label='Kode Akun'>
+              <Space>
+                <Form.Item
+                  name='kodeakun'
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: "Kode akun tidak boleh kosong",
+                    },
+                  ]}
+                >
+                  <Input
+                    style={{
+                      width: 300,
+                      height: 35,
+                      marginLeft: 15,
+                      fontSize: 20,
+                    }}
+                    placeholder='Silahkan Input Kode Akun'
+                  />
+                </Form.Item>
+              </Space>
             </Form.Item>
-          </Form.Item>
-          <Form.Item label='Saldo Awal'>
-            <Space>
+            <Form.Item label='Nama Akun'>
+              <Space>
+                <Form.Item
+                  name='namaakun'
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nama akun tidak boleh kosong",
+                    },
+                  ]}
+                >
+                  <Input
+                    style={{
+                      width: 300,
+                      height: 35,
+                      marginLeft: 15,
+                      fontSize: 20,
+                    }}
+                    placeholder='Silahkan Input Nama Akun'
+                  />
+                </Form.Item>
+              </Space>
+            </Form.Item>
+            <Form.Item label='Kategori'>
               <Form.Item
-                name='saldo'
-                noStyle
-                rules={[
-                  {
-                    required: true,
-                    message: "Name Account is required",
-                  },
-                ]}
+                name={["kategori"]}
+                style={{
+                  width: 300,
+                  height: 50,
+                  marginLeft: 15,
+                  fontSize: 20,
+                }}
               >
-                <Input
-                  style={{
-                    width: 160,
-                  }}
-                  placeholder='Please Input Saldo Awal'
-                />
+                <Select placeholder='Pilih Kategori'>
+                  <Option value='activalancar'>ACTIVA LANCAR</Option>
+                  <Option value='kewajiban'>KEWAJIBAN</Option>
+                </Select>
               </Form.Item>
-            </Space>
-          </Form.Item>
-        </Form>
+            </Form.Item>
+            <Form.Item label='Saldo Awal'>
+              <Space>
+                <Form.Item
+                  name='saldo'
+                  rules={[
+                    {
+                      required: true,
+                      message: "Saldo Awal Tidak Boleh Kosong",
+                    },
+                  ]}
+                >
+                  <Input
+                    style={{
+                      width: 300,
+                      height: 35,
+                      marginLeft: 15,
+                      fontSize: 20,
+                    }}
+                    placeholder='Silahkan Input Saldo Awal'
+                  />
+                </Form.Item>
+              </Space>
+            </Form.Item>
+            <Form.Item label=' ' colon={false}>
+              <Link href='/dataakun'>
+                <Button
+                  danger
+                  type='primary'
+                  style={{
+                    marginRight: "1.5rem",
+                    color: "black",
+                    marginLeft: "2rem",
+                  }}
+                >
+                  Batal
+                </Button>
+              </Link>
+              <Button
+                type='primary'
+                htmlType='submit'
+                style={{
+                  backgroundColor: "#ffcf00",
+                  color: "black",
+                }}
+              >
+                Buat Akun
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
       </div>
     </Layout>
   );
