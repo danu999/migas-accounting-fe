@@ -5,6 +5,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
 import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
 import { useRef, useState } from "react";
+import moment from "moment";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import dayjs from "dayjs";
@@ -89,11 +90,12 @@ const data = [
   },
 ];
 
-const LaporanNeraca = () => {
+const LaporanNeracaLajur = () => {
   const tableRef = useRef(null);
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
+
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
@@ -263,11 +265,10 @@ const LaporanNeraca = () => {
       sortDirections: ["descend", "ascend"],
     },
   ];
-
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>Laporan Neraca</h1>
+        <h1>Laporan Neraca Lajur</h1>
         <Typography style={{ marginTop: "4rem", marginLeft: "6px" }}>
           Pilih Tanggal
         </Typography>
@@ -278,13 +279,21 @@ const LaporanNeraca = () => {
           onChange={onRangeChange}
         />
         <Button
-          style={{ marginLeft: "50rem", marginRight: "1rem" }}
+          style={{
+            marginLeft: "50rem",
+            marginRight: "1rem",
+            borderColor: "black",
+          }}
           icon={<DownloadOutlined />}
           onClick={exportPDF}
         >
           Export PDF
         </Button>
-        <Button icon={<PrinterOutlined />} onClick={printTable}>
+        <Button
+          style={{ borderColor: "black" }}
+          icon={<PrinterOutlined />}
+          onClick={printTable}
+        >
           Print
         </Button>
         <iframe
@@ -305,4 +314,4 @@ const LaporanNeraca = () => {
   );
 };
 
-export default LaporanNeraca;
+export default LaporanNeracaLajur;
