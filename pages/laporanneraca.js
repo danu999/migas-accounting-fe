@@ -2,9 +2,11 @@ import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
+import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
 import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
 import { useRef, useState } from "react";
-import { ReloadOutlined } from "@ant-design/icons";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import dayjs from "dayjs";
 
 const { RangePicker } = DatePicker;
@@ -88,6 +90,7 @@ const data = [
 ];
 
 const LaporanNeraca = () => {
+  const tableRef = useRef(null);
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -100,6 +103,25 @@ const LaporanNeraca = () => {
     clearFilters();
     setSearchText("");
   };
+  const exportPDF = () => {
+    html2canvas(tableRef.current).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("l", "pt", "a4");
+      pdf.addImage(imgData, "PNG", 10, 10);
+      pdf.save("Laporan Neraca.pdf");
+    });
+  };
+
+  const printTable = () => {
+    const content = tableRef.current;
+    const print = document.getElementById("ifmcontentstoprint").contentWindow;
+    print.document.open();
+    print.document.write(content.outerHTML);
+    print.document.close();
+    print.focus();
+    print.print();
+  };
+
   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({
       setSelectedKeys,
@@ -255,9 +277,24 @@ const LaporanNeraca = () => {
           format='DD/MM/YYYY'
           onChange={onRangeChange}
         />
+        <Button
+          style={{ marginLeft: "50rem", marginRight: "1rem" }}
+          icon={<DownloadOutlined />}
+          onClick={exportPDF}
+        >
+          Export PDF
+        </Button>
+        <Button icon={<PrinterOutlined />} onClick={printTable}>
+          Print
+        </Button>
+        <iframe
+          id='ifmcontentstoprint'
+          style={{ height: "0px", width: "0px", position: "absolute" }}
+        />
         <Table
           columns={columns}
           dataSource={data}
+          ref={tableRef}
           style={{
             backgroundColor: "#ffcf00",
             color: "#ffcf00",
