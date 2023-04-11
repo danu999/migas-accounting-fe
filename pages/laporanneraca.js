@@ -1,6 +1,6 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
-import { DatePicker, Space, Typography } from "antd";
+import { DatePicker, Typography } from "antd";
 import dayjs from "dayjs";
 
 const { RangePicker } = DatePicker;
