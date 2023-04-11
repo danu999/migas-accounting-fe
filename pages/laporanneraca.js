@@ -257,7 +257,7 @@ const LaporanNeraca = () => {
         />
         <Table
           columns={columns}
-          dataSource={tableData}
+          dataSource={data}
           style={{
             backgroundColor: "#ffcf00",
             color: "#ffcf00",
