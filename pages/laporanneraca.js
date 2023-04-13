@@ -11,14 +11,6 @@ import jsPDF from "jspdf";
 import dayjs from "dayjs";
 
 const { RangePicker } = DatePicker;
-const onRangeChange = (dates, dateStrings) => {
-  if (dates) {
-    console.log("From: ", dates[0], ", to: ", dates[1]);
-    console.log("From: ", dateStrings[0], ", to: ", dateStrings[1]);
-  } else {
-    console.log("Clear");
-  }
-};
 
 const rangePresets = [
   {
@@ -42,7 +34,7 @@ const rangePresets = [
 const data = [
   {
     key: "1",
-    tanggal: "01/02/2023",
+    tanggal: "01-02-2023",
     kodeakun: 1010,
     namaakun: "ACTIVA LANCAR",
     debit: "",
@@ -50,7 +42,7 @@ const data = [
   },
   {
     key: "2",
-    tanggal: "02/03/2023",
+    tanggal: "02-03-2023",
     kodeakun: 1010,
     namaakun: "ACTIVA LANCAR",
     debit: "",
@@ -59,7 +51,7 @@ const data = [
   {
     key: "3",
     kodeakun: 1011,
-    tanggal: "20/03/2023",
+    tanggal: "20-03-2023",
     namaakun: "BANK MANDIRI",
     debit: "7.000.000.000,00",
     kredit: "",
@@ -67,7 +59,7 @@ const data = [
   {
     key: "4",
     kodeakun: 1011,
-    tanggal: "01/04/2023",
+    tanggal: "01-04-2023",
     namaakun: "KAS",
     debit: "8.000.000.000,00",
     kredit: "",
@@ -75,7 +67,7 @@ const data = [
   {
     key: "5",
     kodeakun: 1012,
-    tanggal: "20/04/2023",
+    tanggal: "20-04-2023",
     namaakun: "BANK BRI",
     debit: "",
     kredit: "5.000.000.000,00",
@@ -83,7 +75,7 @@ const data = [
   {
     key: "6",
     kodeakun: 1010,
-    tanggal: "01/05/2023",
+    tanggal: "01-05-2023",
     namaakun: "ACTIVA LANCAR",
     debit: "",
     kredit: "10.000.000.000,00",
@@ -93,8 +85,23 @@ const data = [
 const LaporanNeraca = () => {
   const tableRef = useRef(null);
   const [searchText, setSearchText] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
+
+  const handleDateRangeChange = (date, dateString) => {
+    const startDate = moment(dateString[0], "DD-MM-YYYY");
+    const endDate = moment(dateString[1], "DD-MM-YYYY");
+
+    const filtered = data.filter(item => {
+      const itemDate = moment(item.tanggal, "DD-MM-YYYY");
+      return (
+        itemDate.isSameOrAfter(startDate) && itemDate.isSameOrBefore(endDate)
+      );
+    });
+
+    setFilteredData(filtered);
+  };
 
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
@@ -275,8 +282,8 @@ const LaporanNeraca = () => {
         <RangePicker
           className={styles.date}
           presets={rangePresets}
-          format='DD/MM/YYYY'
-          onChange={onRangeChange}
+          format='DD-MM-YYYY'
+          onChange={handleDateRangeChange}
         />
         <Button
           style={{
@@ -302,7 +309,7 @@ const LaporanNeraca = () => {
         />
         <Table
           columns={columns}
-          dataSource={data}
+          dataSource={filteredData}
           ref={tableRef}
           style={{
             backgroundColor: "#ffcf00",
