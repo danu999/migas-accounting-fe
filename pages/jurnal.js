@@ -143,11 +143,27 @@ const Jurnal = () => {
     setLoading(false);
   };
 
-  const handleDelete = value => {
-    const dataSource = [...gridData];
-    const filteredData = dataSource.filter(item => item.id !== value.id);
-    setGridData(filteredData);
-  };
+  // const handleDelete = async key => {
+  //   try {
+  //     const response = await axios.delete(
+  //       `http://192.168.254.113:8000/api/journals/${key}`
+  //     );
+
+  //     if (response.status === 200) {
+  //       message.success("Delete Success!");
+  //       setGridData(data.filter(item => item.key !== key));
+  //     } else {
+  //       message.error("Delete Failed!");
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // const handleDelete = value => {
+  //   const dataSource = [...gridData];
+  //   const filteredData = dataSource.filter(item => item.id !== value.id);
+  //   setGridData(filteredData);
+  // };
 
   const isEditing = record => record.key === editRowKey;
 
