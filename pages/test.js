@@ -91,6 +91,14 @@ const columns = [
 const App = () => {
   const [filteredData, setFilteredData] = useState(dataSource);
 
+  const handleRefresh = () => {
+    setFilteredData([...dataSource]);
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
   const handleDateRangeChange = (date, dateString) => {
     const startDate = moment(dateString[0], "YYYY-MM-DD");
     const endDate = moment(dateString[1], "YYYY-MM-DD");
@@ -107,7 +115,16 @@ const App = () => {
 
   return (
     <>
-      <RangePicker onChange={handleDateRangeChange} />
+      <RangePicker
+        style={{ marginBottom: "5rem" }}
+        onChange={handleDateRangeChange}
+      />
+      <button style={{ fontSize: "5rem" }} onClick={handleRefresh}>
+        Refresh
+      </button>
+      <button style={{ fontSize: "5rem" }} onClick={handlePrint}>
+        Print
+      </button>
       <Table dataSource={filteredData} columns={columns} />
     </>
   );

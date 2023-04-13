@@ -1,7 +1,7 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
 import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
 import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
 import { useRef, useState } from "react";
@@ -88,6 +88,10 @@ const LaporanNeraca = () => {
   const [filteredData, setFilteredData] = useState(data);
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
+
+  const handleRefresh = () => {
+    setFilteredData([...data]);
+  };
 
   const handleDateRangeChange = (date, dateString) => {
     const startDate = moment(dateString[0], "DD-MM-YYYY");
@@ -287,7 +291,7 @@ const LaporanNeraca = () => {
         />
         <Button
           style={{
-            marginLeft: "50rem",
+            marginLeft: "49rem",
             marginRight: "1rem",
             borderColor: "black",
           }}
@@ -297,11 +301,18 @@ const LaporanNeraca = () => {
           Export PDF
         </Button>
         <Button
-          style={{ borderColor: "black" }}
+          style={{ borderColor: "black", marginRight: "1rem" }}
           icon={<PrinterOutlined />}
           onClick={printTable}
         >
           Print
+        </Button>
+        <Button
+          style={{ borderColor: "black" }}
+          icon={<SyncOutlined />}
+          onClick={handleRefresh}
+        >
+          Refresh
         </Button>
         <iframe
           id='ifmcontentstoprint'
