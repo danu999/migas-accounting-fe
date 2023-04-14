@@ -1,36 +1,68 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function App() {
+function testCounter() {
+  const [count, setCount] = useState(1);
   const [data, setData] = useState({});
+  const [showError, setShowError] = useState(false);
 
   const fetchData = async () => {
     try {
+      if (count < 1) {
+        throw new Error("ERROR");
+      }
       const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/posts/`
+        `https://jsonplaceholder.typicode.com/comments/${count}`
       );
       setData(response.data);
-      console.log(response);
+      setShowError(false);
     } catch (error) {
       console.log(error);
       setData([]);
     }
   };
+
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, [count]);
+
+  const plus = () => {
+    if (count < 500) {
+      setCount(count + 1);
+    }
+  };
+
+  const min = () => {
+    if (count === 1) {
+      setShowError(true);
+    } else if (count > 1) {
+      setCount(count - 1);
+    }
+  };
 
   return (
     <div>
-      {data.map(post => (
-        <div key={post.id}>
-          <p>ID: {post.id}</p>
-          <p>TITLE: {post.title}</p>
-          <p>BODY: {post.body}</p>
-        </div>
-      ))}
+      <div>
+        <button style={{ fontSize: "5rem" }} onClick={min}>
+          -
+        </button>
+        <span style={{ fontSize: "5rem" }}>{count}</span>
+        <button style={{ fontSize: "5rem" }} onClick={plus}>
+          +
+        </button>
+      </div>
+      <h1>SHOW DATA :</h1>
+      {showError && <p style={{ color: "red", fontSize: "5rem" }}>ERROR</p>}
+      {!showError && (
+        <>
+          <p>ID: {data.id}</p>
+          <p>Name: {data.name}</p>
+          <p>Email: {data.email}</p>
+          <p>Body: {data.body}</p>
+        </>
+      )}
     </div>
   );
 }
 
-export default App;
+export default testCounter;
