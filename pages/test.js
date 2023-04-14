@@ -4,9 +4,11 @@ import axios from "axios";
 function testCounter() {
   const [count, setCount] = useState(1);
   const [data, setData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const [showError, setShowError] = useState(false);
 
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       if (count < 1) {
         throw new Error("ERROR");
@@ -19,6 +21,9 @@ function testCounter() {
     } catch (error) {
       console.log(error);
       setData([]);
+      setShowError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -53,7 +58,10 @@ function testCounter() {
       </div>
       <h1>SHOW DATA :</h1>
       {showError && <p style={{ color: "red", fontSize: "5rem" }}>ERROR</p>}
-      {!showError && (
+      {isLoading && (
+        <p style={{ color: "blue", fontSize: "5rem" }}>Loading...</p>
+      )}
+      {!showError && !isLoading && (
         <>
           <p>ID: {data.id}</p>
           <p>Name: {data.name}</p>
