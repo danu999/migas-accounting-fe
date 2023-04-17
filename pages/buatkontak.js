@@ -1,9 +1,9 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Buatakun.module.css";
 import Link from "next/link";
-import { Form, Input, Space, Select, Button } from "antd";
+import { Form, Input, Space, Select, Button, InputNumber } from "antd";
 
-const BuatAkun = () => {
+const BuatKontak = () => {
   const { Option } = Select;
   const onFinish = values => {
     console.log("Received values of form: ", values);
@@ -11,7 +11,7 @@ const BuatAkun = () => {
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>Buat Akun Baru</h1>
+        <h1>Buat Kontak Baru</h1>
         <div className={styles.form}>
           <Form
             name='complex-form'
@@ -20,21 +20,21 @@ const BuatAkun = () => {
               span: 3,
             }}
             wrapperCol={{
-              span: 10,
+              span: 20,
             }}
             style={{
               maxWidth: 1000,
             }}
           >
-            <Form.Item label='Kode Akun'>
+            <Form.Item label='Nama Kontak'>
               <Space>
                 <Form.Item
-                  name='kodeakun'
+                  name='namakontak'
                   noStyle
                   rules={[
                     {
                       required: true,
-                      message: "Kode akun tidak boleh kosong",
+                      message: "Nama kontak tidak boleh kosong",
                     },
                   ]}
                 >
@@ -45,20 +45,20 @@ const BuatAkun = () => {
                       marginLeft: 15,
                       fontSize: 15,
                     }}
-                    placeholder='Silahkan Input Kode Akun'
+                    placeholder='Silahkan Input Nama Kontak'
                   />
                 </Form.Item>
               </Space>
             </Form.Item>
-            <Form.Item label='Nama Akun'>
+            <Form.Item label='No. Handphone'>
               <Space>
                 <Form.Item
-                  name='namaakun'
+                  name='nomorhandphone'
                   noStyle
                   rules={[
                     {
                       required: true,
-                      message: "Nama akun tidak boleh kosong",
+                      message: "Nomor handphone tidak boleh kosong",
                     },
                   ]}
                 >
@@ -69,14 +69,14 @@ const BuatAkun = () => {
                       marginLeft: 15,
                       fontSize: 15,
                     }}
-                    placeholder='Silahkan Input Nama Akun'
+                    placeholder='Silahkan Input Nomor Handphone'
                   />
                 </Form.Item>
               </Space>
             </Form.Item>
-            <Form.Item label='Kategori Akun'>
+            <Form.Item label='Kategori Kontak'>
               <Form.Item
-                name={["kategoriakun"]}
+                name={["kategorikontak"]}
                 style={{
                   width: 300,
                   height: 50,
@@ -85,8 +85,8 @@ const BuatAkun = () => {
                 }}
               >
                 <Select placeholder='Pilih Kategori'>
-                  <Option value='activalancar'>ACTIVA LANCAR</Option>
-                  <Option value='kewajiban'>KEWAJIBAN</Option>
+                  <Option value='anggota'>ANGGOTA</Option>
+                  <Option value='usaha'>USAHA</Option>
                 </Select>
               </Form.Item>
             </Form.Item>
@@ -114,7 +114,7 @@ const BuatAkun = () => {
               </Space>
             </Form.Item>
             <Form.Item label=' ' colon={false}>
-              <Link href='/dataakun'>
+              <Link href='/datakontak'>
                 <Button
                   danger
                   type='primary'
@@ -135,7 +135,7 @@ const BuatAkun = () => {
                   color: "black",
                 }}
               >
-                Buat Akun
+                Buat Kontak
               </Button>
             </Form.Item>
           </Form>
@@ -145,4 +145,4 @@ const BuatAkun = () => {
   );
 };
 
-export default BuatAkun;
+export default BuatKontak;
