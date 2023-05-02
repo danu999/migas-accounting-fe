@@ -6,6 +6,8 @@ import Chartlabarugi from "@/components/ChartLabarugi.js";
 import Chartneraca from "@/components/ChartNeraca.js";
 import Chartneracalajur from "@/components/ChartNeracalajur.js";
 import Chartaruskas from "@/components/ChartAruskas.js";
+import Tabledataakun from "@/components/TableDataakun.js";
+import Tablejurnal from "@/components/TableJurnal.js";
 import { Card, Space, Statistic, Col, Row } from "antd";
 import {
   ArrowUpOutlined,
@@ -172,6 +174,8 @@ const Dashboard = () => {
       <Chartneraca />
       <Chartneracalajur />
       <Chartaruskas />
+      <Tabledataakun />
+      <Tablejurnal />
     </Layout>
   );
 };

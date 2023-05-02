@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
 
 :root {
   --color-bg: #ffcf00;
@@ -14,9 +14,8 @@
 
 body {
   background-color: #eee;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-
 
 .layout {
   display: flex;
@@ -64,12 +63,12 @@ body {
 }
 
 .sidebar__logo-name {
- margin-bottom: 2rem;
- font-size: 1.1rem;
- display: block;
- align-items: center;
- padding-left: 1.3rem;
- font-family: 'Poppins', sans-serif;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  display: block;
+  align-items: center;
+  padding-left: 1.3rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .sidebar__list {
@@ -153,6 +152,10 @@ body {
   list-style: none;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user {
+  font-family: "Poppins", sans-serif;
 }
 
 /* show submenu on hover */
