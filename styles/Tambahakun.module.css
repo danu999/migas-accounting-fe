@@ -14,3 +14,10 @@
 .form {
   margin-top: 3rem;
 }
+
+.line {
+    width: auto;
+    height: 100%;
+    border-color: black;
+    margin-left: 1rem;
+}

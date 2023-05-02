@@ -1,7 +1,16 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Tambahakun.module.css";
 import Link from "next/link";
-import { Form, Input, Space, Select, Button, DatePicker } from "antd";
+import {
+  Form,
+  Input,
+  Space,
+  Select,
+  Button,
+  DatePicker,
+  Divider,
+  Col,
+} from "antd";
 
 const TambahAsset = () => {
   const { Option } = Select;
@@ -151,6 +160,7 @@ const TambahAsset = () => {
                 </Select>
               </Form.Item>
             </Form.Item>
+            <Divider className={styles.line} />
             <Form.Item label=' ' colon={false}>
               <Link href='/assets'>
                 <Button
