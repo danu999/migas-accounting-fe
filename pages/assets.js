@@ -327,7 +327,7 @@ const Assets = () => {
       <div className={styles.header}>
         <h1>Data Assets</h1>
         <div className={styles.button}>
-          <Link href='/buatasset'>
+          <Link href='/tambahasset'>
             <Button
               style={{
                 backgroundColor: "#ffcf00",

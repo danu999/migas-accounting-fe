@@ -11,7 +11,7 @@ const TambahAsset = () => {
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>Buat Asset Baru</h1>
+        <h1>Penyimpanan Asset Baru</h1>
         <div className={styles.form}>
           <Form
             name='complex-form'
