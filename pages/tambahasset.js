@@ -89,6 +89,7 @@ const TambahAsset = () => {
               <Space>
                 <Form.Item
                   name='nomorasset'
+                  noStyle
                   rules={[
                     {
                       required: true,
@@ -104,6 +105,30 @@ const TambahAsset = () => {
                       fontSize: 15,
                     }}
                     placeholder='Silahkan Input Nomor Asset'
+                  />
+                </Form.Item>
+              </Space>
+            </Form.Item>
+            <Form.Item label='Biaya Akuisisi'>
+              <Space>
+                <Form.Item
+                  name='biayaakuisisi'
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: "Biaya akuisisi tidak boleh kosong",
+                    },
+                  ]}
+                >
+                  <Input
+                    style={{
+                      width: 300,
+                      height: 35,
+                      marginLeft: 15,
+                      fontSize: 15,
+                    }}
+                    placeholder='Silahkan Input Biaya Akuisisi'
                   />
                 </Form.Item>
               </Space>
