@@ -9,49 +9,77 @@ import Highlighter from "react-highlight-words";
 const data = [
   {
     key: "1",
-    kodeakun: 1010,
-    namaakun: "ACTIVA LANCAR",
-    kategoriakun: "ACTIVA LANCAR",
+    namakontak: "Simon Malaranggeng",
+    nohandphone: "081276568874",
+    kategorikontak: "ANGGOTA",
     saldo: "5.000.000.000,00",
   },
   {
     key: "2",
-    kodeakun: 1010,
-    namaakun: "ACTIVA LANCAR",
-    kategoriakun: "ACTIVA LANCAR",
-    saldo: "6.000.000.000,00",
+    namakontak: "Doni Marpaing",
+    nohandphone: "081276567364",
+    kategorikontak: "ANGGOTA",
+    saldo: "4.000.000.000,00",
   },
   {
     key: "3",
-    kodeakun: 1012,
-    namaakun: "BANK MANDIRI",
-    kategoriakun: "KEWAJIBAN",
-    saldo: "7.000.000.000,00",
+    namakontak: "Dina PT. Sumber",
+    nohandphone: "081276523654",
+    kategorikontak: "USAHA",
+    saldo: "9.000.000.000,00",
   },
   {
     key: "4",
-    kodeakun: 2010,
-    namaakun: "KAS",
-    kategoriakun: "KEWAJIBAN",
+    namakontak: "Somsinad PT. Ogah Makmur",
+    nohandphone: "081276976453",
+    kategorikontak: "USAHA",
     saldo: "8.000.000.000,00",
   },
   {
     key: "5",
-    kodeakun: 2011,
-    namaakun: "BANK BRI",
-    kategoriakun: "KEWAJIBAN",
-    saldo: "9.000.000.000,00",
+    namakontak: "Dion Rozaki",
+    nohandphone: "081276568665",
+    kategorikontak: "ANGGOTA",
+    saldo: "3.000.000.000,00",
   },
   {
     key: "6",
-    kodeakun: 1010,
-    namaakun: "ACTIVA LANCAR",
-    kategoriakun: "ACTIVA LANCAR",
-    saldo: "10.000.000.000,00",
+    namakontak: "Mavis Saputri",
+    nohandphone: "081276895423",
+    kategorikontak: "ANGGOTA",
+    saldo: "2.000.000.000,00",
+  },
+  {
+    key: "7",
+    namakontak: "Wiji PT. Srilangka",
+    nohandphone: "08127698765",
+    kategorikontak: "USAHA",
+    saldo: "3.000.000.000,00",
+  },
+  {
+    key: "8",
+    namakontak: "Mike Pt. Alfaria",
+    nohandphone: "081276567654",
+    kategorikontak: "USAHA",
+    saldo: "9.000.000.000,00",
+  },
+  {
+    key: "9",
+    namakontak: "Siti Umairoh",
+    nohandphone: "081276568444",
+    kategorikontak: "ANGGOTA",
+    saldo: "2.000.000.000,00",
+  },
+  {
+    key: "10",
+    namakontak: "Umar Dzin Syeki",
+    nohandphone: "081276535728",
+    kategorikontak: "ANGGOTA",
+    saldo: "4.000.000.000,00",
   },
 ];
 
-const Assets = () => {
+const DataKontak = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -168,25 +196,39 @@ const Assets = () => {
   });
   const columns = [
     {
-      title: "Kode Akun",
-      dataIndex: "kodeakun",
-      key: "kodeakun",
+      title: "Tanggal Akuisisi",
+      dataIndex: "tanggalakuisisi",
+      key: "tanggalakuisisi",
       width: "20%",
-      ...getColumnSearchProps("kodeakun"),
+      ...getColumnSearchProps("tanggalakuisisi"),
     },
     {
-      title: "Nama Akun",
-      dataIndex: "namaakun",
-      key: "namaakun",
+      title: "Detail Assets",
+      dataIndex: "detailassets",
+      key: "detailassets",
       width: "20%",
-      ...getColumnSearchProps("namaakun"),
+      ...getColumnSearchProps("detailassets"),
     },
     {
-      title: "Kategori Akun",
-      dataIndex: "kategoriakun",
-      key: "kategoriakun",
+      title: "Akun Assets",
+      dataIndex: "akunassets",
+      key: "akunassets",
       width: "20%",
-      ...getColumnSearchProps("kategoriakun"),
+      ...getColumnSearchProps("akunassets"),
+    },
+    {
+      title: "Biaya Akuisisi",
+      dataIndex: "biayaakuisisi",
+      key: "biayaakuisisi",
+      width: "20%",
+      ...getColumnSearchProps("biayaakuisisi"),
+    },
+    {
+      title: "Nilai Buku Akuisisi",
+      dataIndex: "nilaibukuakuisisi",
+      key: "nilaibukuakuisisi",
+      width: "20%",
+      ...getColumnSearchProps("nilaibukuakuisisi"),
     },
     {
       title: "Saldo",
@@ -201,9 +243,9 @@ const Assets = () => {
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>Assets</h1>
+        <h1>Data Kontak</h1>
         <div className={styles.button}>
-          <Link href='/buatakun'>
+          <Link href='/buatkontak'>
             <Button
               style={{
                 backgroundColor: "#ffcf00",
@@ -211,7 +253,7 @@ const Assets = () => {
                 marginBottom: "3rem",
               }}
             >
-              Buat Akun Baru
+              Buat Kontak Baru
             </Button>
           </Link>
           <Table
@@ -228,4 +270,4 @@ const Assets = () => {
   );
 };
 
-export default Assets;
+export default DataKontak;
