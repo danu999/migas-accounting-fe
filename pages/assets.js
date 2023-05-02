@@ -5,7 +5,6 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import styles from "@/styles/Datakontak.module.css";
 import Highlighter from "react-highlight-words";
-import { color } from "html2canvas/dist/types/css/types/color";
 
 const data = [
   {
@@ -136,7 +135,7 @@ const data = [
   },
   {
     key: "15",
-    tanggalakuisisi: "23-05-2023",
+    tanggalakuisisi: "23-08-2023",
     detailassets: "(1022) Kertas",
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "100.000,00",
