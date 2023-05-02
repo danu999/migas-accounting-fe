@@ -133,6 +133,23 @@ const TambahAsset = () => {
                 </Form.Item>
               </Space>
             </Form.Item>
+            <Form.Item label='Akun yang dikredit'>
+              <Form.Item
+                name={["akunkredit"]}
+                style={{
+                  width: 300,
+                  height: 50,
+                  marginLeft: 15,
+                  fontSize: 15,
+                }}
+              >
+                <Select placeholder='Pilih'>
+                  <Option value='kas'>(1011) KAS</Option>
+                  <Option value='bri'>(1112) BANK BRI</Option>
+                  <Option value='mandiri'>(1113) BANK MANDIRI</Option>
+                </Select>
+              </Form.Item>
+            </Form.Item>
             <Form.Item label=' ' colon={false}>
               <Link href='/assets'>
                 <Button
