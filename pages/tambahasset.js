@@ -33,6 +33,7 @@ const TambahAsset = () => {
             <Form.Item label='Tanggal Akuisisi'>
               <DatePicker
                 onChange={onChange}
+                format={"DD-MM-YYYY"}
                 style={{
                   width: 300,
                   height: 35,
