@@ -114,7 +114,7 @@ const BuatAkun = () => {
               </Space>
             </Form.Item>
             <Form.Item label=' ' colon={false}>
-              <Link href='/dataakun'>
+              <Link href='/assets'>
                 <Button
                   danger
                   type='primary'
