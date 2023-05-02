@@ -5,81 +5,147 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 import styles from "@/styles/Datakontak.module.css";
 import Highlighter from "react-highlight-words";
+import { color } from "html2canvas/dist/types/css/types/color";
 
 const data = [
   {
     key: "1",
-    namakontak: "Simon Malaranggeng",
-    nohandphone: "081276568874",
-    kategorikontak: "ANGGOTA",
-    saldo: "5.000.000.000,00",
+    tanggalakuisisi: "01-05-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: "Accept",
   },
   {
     key: "2",
-    namakontak: "Doni Marpaing",
-    nohandphone: "081276567364",
-    kategorikontak: "ANGGOTA",
-    saldo: "4.000.000.000,00",
+    tanggalakuisisi: "15-05-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: "Accept",
   },
   {
     key: "3",
-    namakontak: "Dina PT. Sumber",
-    nohandphone: "081276523654",
-    kategorikontak: "USAHA",
-    saldo: "9.000.000.000,00",
+    tanggalakuisisi: "20-05-2023",
+    detailassets: "(1033) Printer",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "5.100.000,00",
+    nilaibukuakuisisi: "5.100.000,00",
+    status: "Accept",
   },
   {
     key: "4",
-    namakontak: "Somsinad PT. Ogah Makmur",
-    nohandphone: "081276976453",
-    kategorikontak: "USAHA",
-    saldo: "8.000.000.000,00",
+    tanggalakuisisi: "01-06-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: "Pending",
   },
   {
     key: "5",
-    namakontak: "Dion Rozaki",
-    nohandphone: "081276568665",
-    kategorikontak: "ANGGOTA",
-    saldo: "3.000.000.000,00",
+    tanggalakuisisi: "10-06-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: "Pending",
   },
   {
     key: "6",
-    namakontak: "Mavis Saputri",
-    nohandphone: "081276895423",
-    kategorikontak: "ANGGOTA",
-    saldo: "2.000.000.000,00",
+    tanggalakuisisi: "01-07-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: "Accept",
   },
   {
     key: "7",
-    namakontak: "Wiji PT. Srilangka",
-    nohandphone: "08127698765",
-    kategorikontak: "USAHA",
-    saldo: "3.000.000.000,00",
+    tanggalakuisisi: "10-07-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: "Accept",
   },
   {
     key: "8",
-    namakontak: "Mike Pt. Alfaria",
-    nohandphone: "081276567654",
-    kategorikontak: "USAHA",
-    saldo: "9.000.000.000,00",
+    tanggalakuisisi: "15-07-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: "Pending",
   },
   {
     key: "9",
-    namakontak: "Siti Umairoh",
-    nohandphone: "081276568444",
-    kategorikontak: "ANGGOTA",
-    saldo: "2.000.000.000,00",
+    tanggalakuisisi: "20-07-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: "Pending",
   },
   {
     key: "10",
-    namakontak: "Umar Dzin Syeki",
-    nohandphone: "081276535728",
-    kategorikontak: "ANGGOTA",
-    saldo: "4.000.000.000,00",
+    tanggalakuisisi: "25-07-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "2.100.000,00",
+    nilaibukuakuisisi: "2.100.000,00",
+    status: "Reject",
+  },
+  {
+    key: "11",
+    tanggalakuisisi: "27-07-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: "Reject",
+  },
+  {
+    key: "12",
+    tanggalakuisisi: "01-08-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "200.000,00",
+    nilaibukuakuisisi: "200.000,00",
+    status: "Accept",
+  },
+  {
+    key: "13",
+    tanggalakuisisi: "10-08-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "200.000,00",
+    nilaibukuakuisisi: "200.000,00",
+    status: "Accept",
+  },
+  {
+    key: "14",
+    tanggalakuisisi: "20-08-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "200.000,00",
+    nilaibukuakuisisi: "200.000,00",
+    status: "Accept",
+  },
+  {
+    key: "15",
+    tanggalakuisisi: "23-05-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: "Reject",
   },
 ];
 
-const DataKontak = () => {
+const Assets = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -199,21 +265,21 @@ const DataKontak = () => {
       title: "Tanggal Akuisisi",
       dataIndex: "tanggalakuisisi",
       key: "tanggalakuisisi",
-      width: "20%",
+      width: "15%",
       ...getColumnSearchProps("tanggalakuisisi"),
     },
     {
       title: "Detail Assets",
       dataIndex: "detailassets",
       key: "detailassets",
-      width: "20%",
+      width: "15%",
       ...getColumnSearchProps("detailassets"),
     },
     {
       title: "Akun Assets",
       dataIndex: "akunassets",
       key: "akunassets",
-      width: "20%",
+      width: "25%",
       ...getColumnSearchProps("akunassets"),
     },
     {
@@ -231,19 +297,17 @@ const DataKontak = () => {
       ...getColumnSearchProps("nilaibukuakuisisi"),
     },
     {
-      title: "Saldo",
-      dataIndex: "saldo",
-      key: "saldo",
-      width: "30%",
-      ...getColumnSearchProps("saldo"),
-      sorter: (a, b) => a.saldo.length - b.saldo.length,
-      sortDirections: ["descend", "ascend"],
+      title: "Status",
+      dataIndex: "status",
+      key: "status",
+      width: "20%",
+      ...getColumnSearchProps("status"),
     },
   ];
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>Data Kontak</h1>
+        <h1>Data Assets</h1>
         <div className={styles.button}>
           <Link href='/buatkontak'>
             <Button
@@ -253,7 +317,7 @@ const DataKontak = () => {
                 marginBottom: "3rem",
               }}
             >
-              Buat Kontak Baru
+              Buat Asset Baru
             </Button>
           </Link>
           <Table
@@ -270,4 +334,4 @@ const DataKontak = () => {
   );
 };
 
-export default DataKontak;
+export default Assets;
