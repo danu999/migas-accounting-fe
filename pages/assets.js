@@ -2,7 +2,7 @@ import Layout from "@/layout/Layout";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import { Button, Input, Space, Table, Tag } from "antd";
 import styles from "@/styles/Datakontak.module.css";
 import Highlighter from "react-highlight-words";
 
@@ -14,7 +14,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "100.000,00",
     nilaibukuakuisisi: "100.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "2",
@@ -23,7 +23,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "100.000,00",
     nilaibukuakuisisi: "100.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "3",
@@ -32,7 +32,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "5.100.000,00",
     nilaibukuakuisisi: "5.100.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "4",
@@ -41,7 +41,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "1.500.000,00",
     nilaibukuakuisisi: "1.500.000,00",
-    status: "Pending",
+    status: ["Pending"],
   },
   {
     key: "5",
@@ -50,7 +50,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "1.500.000,00",
     nilaibukuakuisisi: "1.500.000,00",
-    status: "Pending",
+    status: ["Pending"],
   },
   {
     key: "6",
@@ -59,7 +59,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "100.000,00",
     nilaibukuakuisisi: "100.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "7",
@@ -68,7 +68,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "100.000,00",
     nilaibukuakuisisi: "100.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "8",
@@ -77,7 +77,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "1.500.000,00",
     nilaibukuakuisisi: "1.500.000,00",
-    status: "Pending",
+    status: ["Pending"],
   },
   {
     key: "9",
@@ -86,7 +86,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "1.500.000,00",
     nilaibukuakuisisi: "1.500.000,00",
-    status: "Pending",
+    status: ["Pending"],
   },
   {
     key: "10",
@@ -95,7 +95,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "2.100.000,00",
     nilaibukuakuisisi: "2.100.000,00",
-    status: "Reject",
+    status: ["Reject"],
   },
   {
     key: "11",
@@ -104,7 +104,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "100.000,00",
     nilaibukuakuisisi: "100.000,00",
-    status: "Reject",
+    status: ["Reject"],
   },
   {
     key: "12",
@@ -113,7 +113,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "200.000,00",
     nilaibukuakuisisi: "200.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "13",
@@ -122,7 +122,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "200.000,00",
     nilaibukuakuisisi: "200.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "14",
@@ -131,7 +131,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "200.000,00",
     nilaibukuakuisisi: "200.000,00",
-    status: "Accept",
+    status: ["Accept"],
   },
   {
     key: "15",
@@ -140,7 +140,7 @@ const data = [
     akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
     biayaakuisisi: "100.000,00",
     nilaibukuakuisisi: "100.000,00",
-    status: "Reject",
+    status: ["Reject"],
   },
 ];
 
@@ -301,6 +301,25 @@ const Assets = () => {
       key: "status",
       width: "20%",
       ...getColumnSearchProps("status"),
+      render: status => (
+        <span>
+          {Array.isArray(status) &&
+            status.map(tag => {
+              let color = "green";
+              if (tag === "Pending") {
+                color = "grey";
+              }
+              if (tag === "Reject") {
+                color = "red";
+              }
+              return (
+                <Tag color={color} key={tag}>
+                  {tag.toUpperCase()}
+                </Tag>
+              );
+            })}
+        </span>
+      ),
     },
   ];
   return (
