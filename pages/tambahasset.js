@@ -3,7 +3,7 @@ import styles from "@/styles/Buatakun.module.css";
 import Link from "next/link";
 import { Form, Input, Space, Select, Button } from "antd";
 
-const BuatAkun = () => {
+const TambahAsset = () => {
   const { Option } = Select;
   const onFinish = values => {
     console.log("Received values of form: ", values);
@@ -145,4 +145,4 @@ const BuatAkun = () => {
   );
 };
 
-export default BuatAkun;
+export default TambahAsset;
