@@ -1,10 +1,13 @@
 import Layout from "@/layout/Layout";
-import styles from "@/styles/Buatakun.module.css";
+import styles from "@/styles/Tambahakun.module.css";
 import Link from "next/link";
-import { Form, Input, Space, Select, Button } from "antd";
+import { Form, Input, Space, Select, Button, DatePicker } from "antd";
 
 const TambahAsset = () => {
   const { Option } = Select;
+  const onChange = (date, dateString) => {
+    console.log(date, dateString);
+  };
   const onFinish = values => {
     console.log("Received values of form: ", values);
   };
@@ -12,6 +15,7 @@ const TambahAsset = () => {
     <Layout>
       <div className={styles.header}>
         <h1>Penyimpanan Asset Baru</h1>
+        <h2 className={styles.asset}>Detail Asset</h2>
         <div className={styles.form}>
           <Form
             name='complex-form'
@@ -26,55 +30,18 @@ const TambahAsset = () => {
               maxWidth: 1000,
             }}
           >
-            <Form.Item label='Kode Akun'>
-              <Space>
-                <Form.Item
-                  name='kodeakun'
-                  noStyle
-                  rules={[
-                    {
-                      required: true,
-                      message: "Kode akun tidak boleh kosong",
-                    },
-                  ]}
-                >
-                  <Input
-                    style={{
-                      width: 300,
-                      height: 35,
-                      marginLeft: 15,
-                      fontSize: 15,
-                    }}
-                    placeholder='Silahkan Input Kode Akun'
-                  />
-                </Form.Item>
-              </Space>
+            <Form.Item label='Tanggal Akuisisi'>
+              <DatePicker
+                onChange={onChange}
+                style={{
+                  width: 300,
+                  height: 35,
+                  marginLeft: 15,
+                  fontSize: 15,
+                }}
+              />
             </Form.Item>
-            <Form.Item label='Nama Akun'>
-              <Space>
-                <Form.Item
-                  name='namaakun'
-                  noStyle
-                  rules={[
-                    {
-                      required: true,
-                      message: "Nama akun tidak boleh kosong",
-                    },
-                  ]}
-                >
-                  <Input
-                    style={{
-                      width: 300,
-                      height: 35,
-                      marginLeft: 15,
-                      fontSize: 15,
-                    }}
-                    placeholder='Silahkan Input Nama Akun'
-                  />
-                </Form.Item>
-              </Space>
-            </Form.Item>
-            <Form.Item label='Kategori Akun'>
+            <Form.Item label='Pilih Akun'>
               <Form.Item
                 name={["kategoriakun"]}
                 style={{
@@ -84,20 +51,25 @@ const TambahAsset = () => {
                   fontSize: 15,
                 }}
               >
-                <Select placeholder='Pilih Kategori'>
-                  <Option value='activalancar'>ACTIVA LANCAR</Option>
-                  <Option value='kewajiban'>KEWAJIBAN</Option>
+                <Select placeholder='Pilih'>
+                  <Option value='assettetap'>
+                    (1-00701) Asset Tetap - Perlengkapan Kantor
+                  </Option>
+                  <Option value='assetsementara'>
+                    (1-00702) Asset Sementara - Perlengkapan Kantor
+                  </Option>
                 </Select>
               </Form.Item>
             </Form.Item>
-            <Form.Item label='Saldo Awal'>
+            <Form.Item label='Nama Asset'>
               <Space>
                 <Form.Item
-                  name='saldo'
+                  name='namaasset'
+                  noStyle
                   rules={[
                     {
                       required: true,
-                      message: "Saldo Awal Tidak Boleh Kosong",
+                      message: "Nama asset tidak boleh kosong",
                     },
                   ]}
                 >
@@ -108,7 +80,30 @@ const TambahAsset = () => {
                       marginLeft: 15,
                       fontSize: 15,
                     }}
-                    placeholder='Silahkan Input Saldo Awal'
+                    placeholder='Silahkan Input Nama Asset'
+                  />
+                </Form.Item>
+              </Space>
+            </Form.Item>
+            <Form.Item label='Nomor Asset'>
+              <Space>
+                <Form.Item
+                  name='nomorasset'
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nomor Asset Tidak Boleh Kosong",
+                    },
+                  ]}
+                >
+                  <Input
+                    style={{
+                      width: 300,
+                      height: 35,
+                      marginLeft: 15,
+                      fontSize: 15,
+                    }}
+                    placeholder='Silahkan Input Nomor Asset'
                   />
                 </Form.Item>
               </Space>
