@@ -61,7 +61,7 @@ const TambahAsset = () => {
                 name={["kategoriakun"]}
                 style={{
                   width: 300,
-                  height: 50,
+                  height: 10,
                   marginLeft: 15,
                   fontSize: 15,
                 }}
@@ -91,7 +91,7 @@ const TambahAsset = () => {
                   <Input
                     style={{
                       width: 300,
-                      height: 35,
+                      height: 30,
                       marginLeft: 15,
                       fontSize: 15,
                     }}
@@ -115,7 +115,7 @@ const TambahAsset = () => {
                   <Input
                     style={{
                       width: 300,
-                      height: 35,
+                      height: 30,
                       marginLeft: 15,
                       fontSize: 15,
                     }}
@@ -139,7 +139,7 @@ const TambahAsset = () => {
                   <Input
                     style={{
                       width: 300,
-                      height: 35,
+                      height: 30,
                       marginLeft: 15,
                       fontSize: 15,
                     }}
@@ -169,7 +169,65 @@ const TambahAsset = () => {
             <div className={styles.penyusutan}>
               <h2>Penyusutan</h2>
             </div>
-            <Typography>Asset non-depresiasi</Typography>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "1.5rem",
+              }}
+            >
+              <Typography style={{ marginRight: "16px" }}>
+                Asset non-depresiasi :
+              </Typography>
+              <Checkbox onChange={onChecklist}></Checkbox>
+            </div>
+            <Form.Item label='Metode'>
+              <Form.Item
+                name={["metode"]}
+                style={{
+                  width: 300,
+                  height: 10,
+                  marginLeft: 15,
+                  fontSize: 15,
+                }}
+              >
+                <Select placeholder='Pilih Metode'>
+                  <Option value='strightline'>Stright Line</Option>
+                  <Option value='doubledecliningbalance'>
+                    Double Declining Balance
+                  </Option>
+                  <Option value='sumoftheyeardigit'>
+                    Sum of The Year Digit
+                  </Option>
+                </Select>
+              </Form.Item>
+            </Form.Item>
+            <Form.Item label='Masa Manfaat'>
+              <Space>
+                <Form.Item
+                  name='masamanfaat'
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: "Masa Manfaat tidak boleh kosong",
+                    },
+                  ]}
+                >
+                  <Input
+                    style={{
+                      width: 35,
+                      height: 30,
+                      marginLeft: 15,
+                      fontSize: 15,
+                      marginRight: 10,
+                    }}
+                    placeholder='...'
+                  />
+                  Tahun
+                </Form.Item>
+              </Space>
+            </Form.Item>
             <Form.Item label=' ' colon={false}>
               <Link href='/assets'>
                 <Button
