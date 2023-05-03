@@ -248,7 +248,6 @@ const TambahAsset = () => {
                       fontSize: 15,
                       marginRight: 10,
                     }}
-                    type='decimal'
                   />
                   Persen
                 </Form.Item>
