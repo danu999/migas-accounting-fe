@@ -216,7 +216,7 @@ const TambahAsset = () => {
                 >
                   <Input
                     style={{
-                      width: 70,
+                      width: 300,
                       height: 30,
                       marginLeft: 15,
                       fontSize: 15,
@@ -224,7 +224,6 @@ const TambahAsset = () => {
                     }}
                     type='number'
                   />
-                  Tahun
                 </Form.Item>
               </Space>
             </Form.Item>
@@ -242,14 +241,13 @@ const TambahAsset = () => {
                 >
                   <Input
                     style={{
-                      width: 70,
+                      width: 300,
                       height: 30,
                       marginLeft: 15,
                       fontSize: 15,
                       marginRight: 10,
                     }}
                   />
-                  Persen
                 </Form.Item>
               </Space>
             </Form.Item>
