@@ -9,7 +9,8 @@ import {
   Button,
   DatePicker,
   Divider,
-  Col,
+  Checkbox,
+  Typography,
 } from "antd";
 
 const TambahAsset = () => {
@@ -20,6 +21,10 @@ const TambahAsset = () => {
   const onFinish = values => {
     console.log("Received values of form: ", values);
   };
+  const onChecklist = e => {
+    console.log(`checked = ${e.target.checked}`);
+  };
+
   return (
     <Layout>
       <div className={styles.header}>
@@ -161,6 +166,10 @@ const TambahAsset = () => {
               </Form.Item>
             </Form.Item>
             <Divider className={styles.line} />
+            <div className={styles.penyusutan}>
+              <h2>Penyusutan</h2>
+            </div>
+            <Typography>Asset non-depresiasi</Typography>
             <Form.Item label=' ' colon={false}>
               <Link href='/assets'>
                 <Button
