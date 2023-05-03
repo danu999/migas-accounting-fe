@@ -216,15 +216,41 @@ const TambahAsset = () => {
                 >
                   <Input
                     style={{
-                      width: 35,
+                      width: 70,
                       height: 30,
                       marginLeft: 15,
                       fontSize: 15,
                       marginRight: 10,
                     }}
-                    placeholder='...'
+                    type='number'
                   />
                   Tahun
+                </Form.Item>
+              </Space>
+            </Form.Item>
+            <Form.Item label='Nilai/Tahun'>
+              <Space>
+                <Form.Item
+                  name='nilai/tahun'
+                  noStyle
+                  rules={[
+                    {
+                      required: true,
+                      message: "Nilai/Tahun tidak boleh kosong",
+                    },
+                  ]}
+                >
+                  <Input
+                    style={{
+                      width: 70,
+                      height: 30,
+                      marginLeft: 15,
+                      fontSize: 15,
+                      marginRight: 10,
+                    }}
+                    type='decimal'
+                  />
+                  Persen
                 </Form.Item>
               </Space>
             </Form.Item>
