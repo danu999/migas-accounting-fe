@@ -212,11 +212,17 @@ const LaporanAssets = () => {
     clearFilters();
     setSearchText("");
   };
+
   const exportPDF = () => {
+    const now = new Date();
+    const dateString = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+
     html2canvas(tableRef.current).then(canvas => {
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("l", "pt", "a4");
-      pdf.addImage(imgData, "PNG", 10, 10);
+      const pdf = new jsPDF("p", "pt", "a4");
+      pdf.addImage(imgData, "PNG", 20, 40, 550, 0);
+      pdf.setFontSize(12);
+      pdf.text(`Printed on: ${dateString}`, 20, 30);
       pdf.save("Laporan Assets.pdf");
     });
   };
@@ -226,8 +232,8 @@ const LaporanAssets = () => {
     const print = document.getElementById("ifmcontentstoprint").contentWindow;
     print.document.open();
     print.document.write(content.outerHTML);
-    // print.document.close();
-    // print.focus();
+    print.document.close();
+    print.focus();
     print.print();
   };
 
