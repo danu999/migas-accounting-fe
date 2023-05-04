@@ -368,8 +368,6 @@ const LaporanNeracaLajur = () => {
       key: "kredit",
       width: "30%",
       ...getColumnSearchProps("kredit"),
-      sorter: (a, b) => a.saldo.length - b.saldo.length,
-      sortDirections: ["descend", "ascend"],
     },
   ];
   return (
