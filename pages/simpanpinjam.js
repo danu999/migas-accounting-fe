@@ -2,8 +2,11 @@ import Layout from "@/layout/Layout";
 import Link from "next/link";
 import styles from "@/styles/Simpanpinjam.module.css";
 import Highlighter from "react-highlight-words";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 import { useRef, useState } from "react";
-import { SearchOutlined } from "@ant-design/icons";
+import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
+import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
 
 const data = [
@@ -110,9 +113,16 @@ const data = [
 ];
 
 const SimpanPinjam = () => {
+  const tableRef = useRef(null);
   const [searchText, setSearchText] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
+
+  const handleRefresh = () => {
+    setFilteredData([...data]);
+  };
+
   const handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
     setSearchText(selectedKeys[0]);
@@ -122,6 +132,31 @@ const SimpanPinjam = () => {
     clearFilters();
     setSearchText("");
   };
+
+  const exportPDF = () => {
+    const now = new Date();
+    const dateString = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+
+    html2canvas(tableRef.current).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "pt", "a4");
+      pdf.addImage(imgData, "PNG", 20, 40, 550, 0);
+      pdf.setFontSize(12);
+      pdf.text(`Printed on: ${dateString}`, 20, 30);
+      pdf.save("Laporan Assets.pdf");
+    });
+  };
+
+  const printTable = () => {
+    const content = tableRef.current;
+    const print = document.getElementById("ifmcontentstoprint").contentWindow;
+    print.document.open();
+    print.document.write(content.outerHTML);
+    print.document.close();
+    print.focus();
+    print.print();
+  };
+
   const getColumnSearchProps = dataIndex => ({
     filterDropdown: ({
       setSelectedKeys,
@@ -292,6 +327,35 @@ const SimpanPinjam = () => {
               Buat Akun Baru
             </Button>
           </Link>
+          <Button
+            style={{
+              marginLeft: "49rem",
+              marginRight: "1rem",
+              borderColor: "black",
+            }}
+            icon={<DownloadOutlined />}
+            onClick={exportPDF}
+          >
+            Export PDF
+          </Button>
+          <Button
+            style={{ borderColor: "black", marginRight: "1rem" }}
+            icon={<PrinterOutlined />}
+            onClick={printTable}
+          >
+            Print
+          </Button>
+          <Button
+            style={{ borderColor: "black" }}
+            icon={<SyncOutlined />}
+            onClick={handleRefresh}
+          >
+            Refresh
+          </Button>
+          <iframe
+            id='ifmcontentstoprint'
+            style={{ height: "0px", width: "0px", position: "absolute" }}
+          />
           <Table
             columns={columns}
             dataSource={data}
