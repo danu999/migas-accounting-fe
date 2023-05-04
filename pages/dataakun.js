@@ -194,8 +194,6 @@ const DataAkun = () => {
       key: "saldo",
       width: "30%",
       ...getColumnSearchProps("saldo"),
-      sorter: (a, b) => a.saldo.length - b.saldo.length,
-      sortDirections: ["descend", "ascend"],
     },
   ];
   return (
