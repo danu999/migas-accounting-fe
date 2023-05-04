@@ -316,7 +316,7 @@ const SimpanPinjam = () => {
       <div className={styles.header}>
         <h1>Simpan Pinjam</h1>
         <div className={styles.button}>
-          <Link href='/buatakun'>
+          <Link href=''>
             <Button
               style={{
                 backgroundColor: "#ffcf00",
