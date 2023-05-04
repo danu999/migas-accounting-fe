@@ -226,8 +226,8 @@ const LaporanAssets = () => {
     const print = document.getElementById("ifmcontentstoprint").contentWindow;
     print.document.open();
     print.document.write(content.outerHTML);
-    print.document.close();
-    print.focus();
+    // print.document.close();
+    // print.focus();
     print.print();
   };
 
@@ -306,6 +306,7 @@ const LaporanAssets = () => {
     ),
     filterIcon: filtered => (
       <SearchOutlined
+        className={styles.noprint}
         style={{
           color: filtered ? "#1890ff" : undefined,
         }}
