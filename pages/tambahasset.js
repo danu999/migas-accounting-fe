@@ -216,7 +216,7 @@ const TambahAsset = () => {
                 >
                   <Input
                     style={{
-                      width: 300,
+                      width: 65,
                       height: 30,
                       marginLeft: 15,
                       fontSize: 15,
@@ -241,7 +241,7 @@ const TambahAsset = () => {
                 >
                   <Input
                     style={{
-                      width: 300,
+                      width: 65,
                       height: 30,
                       marginLeft: 15,
                       fontSize: 15,
