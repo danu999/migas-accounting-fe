@@ -306,7 +306,6 @@ const LaporanAssets = () => {
     ),
     filterIcon: filtered => (
       <SearchOutlined
-        className={styles.noprint}
         style={{
           color: filtered ? "#1890ff" : undefined,
         }}
