@@ -1,85 +1,55 @@
 import Layout from "@/layout/Layout";
 import Link from "next/link";
+import styles from "@/styles/Simpanpinjam.module.css";
+import Highlighter from "react-highlight-words";
 import { useRef, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space, Table } from "antd";
-import styles from "@/styles/Datakontak.module.css";
-import Highlighter from "react-highlight-words";
 
 const data = [
   {
     key: "1",
-    namakontak: "Simon Malaranggeng",
-    nohandphone: "081276568874",
-    kategorikontak: "ANGGOTA",
-    saldo: "5.000.000.000,00",
+    kodeakun: 1001,
+    tanggal: "01-02-2023",
+    nama: "UMK IBT",
+    kategori: "Usaha",
+    deskripsi: "Penulisan Cicilan",
+    debit: "-",
+    kredit: "Rp 5.000.000,00",
   },
   {
     key: "2",
-    namakontak: "Doni Marpaing",
-    nohandphone: "081276567364",
-    kategorikontak: "ANGGOTA",
-    saldo: "4.000.000.000,00",
+    kodeakun: 1001,
+    tanggal: "02-02-2023",
+    nama: "UMK JKA",
+    kategori: "Usaha",
+    deskripsi: "Penulisan Cicilan",
+    debit: "-",
+    kredit: "Rp 2.000.000,00",
   },
   {
     key: "3",
-    namakontak: "Dina PT. Sumber",
-    nohandphone: "081276523654",
-    kategorikontak: "USAHA",
-    saldo: "9.000.000.000,00",
+    kodeakun: 1002,
+    tanggal: "04-02-2023",
+    nama: "UMK IKM",
+    kategori: "Usaha",
+    deskripsi: "Pinjaman",
+    debit: "Rp 4.000.000,00",
+    kredit: "-",
   },
   {
     key: "4",
-    namakontak: "Somsinad PT. Ogah Makmur",
-    nohandphone: "081276976453",
-    kategorikontak: "USAHA",
-    saldo: "8.000.000.000,00",
-  },
-  {
-    key: "5",
-    namakontak: "Dion Rozaki",
-    nohandphone: "081276568665",
-    kategorikontak: "ANGGOTA",
-    saldo: "3.000.000.000,00",
-  },
-  {
-    key: "6",
-    namakontak: "Mavis Saputri",
-    nohandphone: "081276895423",
-    kategorikontak: "ANGGOTA",
-    saldo: "2.000.000.000,00",
-  },
-  {
-    key: "7",
-    namakontak: "Wiji PT. Srilangka",
-    nohandphone: "08127698765",
-    kategorikontak: "USAHA",
-    saldo: "3.000.000.000,00",
-  },
-  {
-    key: "8",
-    namakontak: "Mike Pt. Alfaria",
-    nohandphone: "081276567654",
-    kategorikontak: "USAHA",
-    saldo: "9.000.000.000,00",
-  },
-  {
-    key: "9",
-    namakontak: "Siti Umairoh",
-    nohandphone: "081276568444",
-    kategorikontak: "ANGGOTA",
-    saldo: "2.000.000.000,00",
-  },
-  {
-    key: "10",
-    namakontak: "Umar Dzin Syeki",
-    nohandphone: "081276535728",
-    kategorikontak: "ANGGOTA",
-    saldo: "4.000.000.000,00",
+    kodeakun: 1002,
+    tanggal: "05-02-2023",
+    nama: "UMK HANDAK",
+    kategori: "Usaha",
+    deskripsi: "Pinjaman",
+    debit: "Rp 5.000.000,00",
+    kredit: "-",
   },
 ];
 
-const DataKontak = () => {
+const SimpanPinjam = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
   const searchInput = useRef(null);
@@ -194,42 +164,64 @@ const DataKontak = () => {
         text
       ),
   });
+
   const columns = [
     {
-      title: "Nama Kontak",
-      dataIndex: "namakontak",
-      key: "namakontak",
-      width: "20%",
-      ...getColumnSearchProps("namakontak"),
+      title: "Kode Akun",
+      dataIndex: "kodeakun",
+      key: "kodeakun",
+      width: "10%",
+      ...getColumnSearchProps("kodeakun"),
     },
     {
-      title: "No. Handphone",
-      dataIndex: "nohandphone",
-      key: "nohandphone",
-      width: "20%",
-      ...getColumnSearchProps("nohandphone"),
+      title: "Tanggal",
+      dataIndex: "tanggal",
+      key: "tanggal",
+      width: "10%",
+      ...getColumnSearchProps("tanggal"),
     },
     {
-      title: "Kategori Kontak",
-      dataIndex: "kategorikontak",
-      key: "kategorikontak",
-      width: "20%",
-      ...getColumnSearchProps("kategorikontak"),
+      title: "Nama",
+      dataIndex: "nama",
+      key: "nama",
+      width: "15%",
+      ...getColumnSearchProps("nama"),
     },
     {
-      title: "Saldo",
-      dataIndex: "saldo",
-      key: "saldo",
-      width: "30%",
-      ...getColumnSearchProps("saldo"),
+      title: "Kategori",
+      dataIndex: "kategori",
+      key: "kategori",
+      width: "15%",
+      ...getColumnSearchProps("kategori"),
+    },
+    {
+      title: "Deskripsi",
+      dataIndex: "deskripsi",
+      key: "deskripsi",
+      width: "20%",
+      ...getColumnSearchProps("deskripsi"),
+    },
+    {
+      title: "Debit",
+      dataIndex: "debit",
+      key: "debit",
+      width: "15%",
+      ...getColumnSearchProps("debit"),
+    },
+    {
+      title: "Kredit",
+      dataIndex: "kredit",
+      key: "kredit",
+      width: "15%",
+      ...getColumnSearchProps("kredit"),
     },
   ];
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>Data Kontak</h1>
+        <h1>Simpan Pinjam</h1>
         <div className={styles.button}>
-          <Link href='/buatkontak'>
+          <Link href='/buatakun'>
             <Button
               style={{
                 backgroundColor: "#ffcf00",
@@ -237,7 +229,7 @@ const DataKontak = () => {
                 marginBottom: "3rem",
               }}
             >
-              Buat Kontak Baru
+              Buat Akun Baru
             </Button>
           </Link>
           <Table
@@ -254,4 +246,4 @@ const DataKontak = () => {
   );
 };
 
-export default DataKontak;
+export default SimpanPinjam;
