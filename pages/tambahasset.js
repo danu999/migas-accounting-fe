@@ -225,6 +225,7 @@ const TambahAsset = () => {
                     type='number'
                   />
                 </Form.Item>
+                Tahun
               </Space>
             </Form.Item>
             <Form.Item label='Nilai/Tahun'>
@@ -249,6 +250,7 @@ const TambahAsset = () => {
                     }}
                   />
                 </Form.Item>
+                Persen
               </Space>
             </Form.Item>
             <Form.Item label=' ' colon={false}>
