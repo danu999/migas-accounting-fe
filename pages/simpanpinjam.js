@@ -143,7 +143,7 @@ const SimpanPinjam = () => {
       pdf.addImage(imgData, "PNG", 20, 40, 550, 0);
       pdf.setFontSize(12);
       pdf.text(`Printed on: ${dateString}`, 20, 30);
-      pdf.save("Laporan Assets.pdf");
+      pdf.save("Simpan Pinjam.pdf");
     });
   };
 
@@ -324,12 +324,12 @@ const SimpanPinjam = () => {
                 marginBottom: "3rem",
               }}
             >
-              Buat Akun Baru
+              Buat Baru
             </Button>
           </Link>
           <Button
             style={{
-              marginLeft: "49rem",
+              marginLeft: "60rem",
               marginRight: "1rem",
               borderColor: "black",
             }}
@@ -356,9 +356,14 @@ const SimpanPinjam = () => {
             id='ifmcontentstoprint'
             style={{ height: "0px", width: "0px", position: "absolute" }}
           />
+          <iframe
+            id='ifmcontentstoprint'
+            style={{ height: "0px", width: "0px", position: "absolute" }}
+          />
           <Table
             columns={columns}
-            dataSource={data}
+            dataSource={filteredData}
+            ref={tableRef}
             style={{
               backgroundColor: "#ffcf00",
               color: "#ffcf00",

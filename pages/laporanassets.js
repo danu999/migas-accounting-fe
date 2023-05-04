@@ -339,6 +339,7 @@ const LaporanAssets = () => {
         text
       ),
   });
+
   const columns = [
     {
       title: "Tanggal",
