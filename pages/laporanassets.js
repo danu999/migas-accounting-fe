@@ -217,7 +217,7 @@ const LaporanAssets = () => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("l", "pt", "a4");
       pdf.addImage(imgData, "PNG", 10, 10);
-      pdf.save("Laporan Neraca Lajur.pdf");
+      pdf.save("Laporan Assets.pdf");
     });
   };
 
