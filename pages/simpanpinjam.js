@@ -6,8 +6,12 @@ import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useRef, useState } from "react";
 import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
-import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import {
+  DownloadOutlined,
+  PrinterOutlined,
+  DownOutlined,
+} from "@ant-design/icons";
+import { Button, Input, Space, Table, Menu, Dropdown } from "antd";
 
 const data = [
   {
@@ -111,6 +115,19 @@ const data = [
     kredit: "Rp 8.000.000,00",
   },
 ];
+const menu = (
+  <Menu>
+    <Menu.Item key='1'>
+      <Link href='/path/to/option1'>Option 1</Link>
+    </Menu.Item>
+    <Menu.Item key='2'>
+      <Link href='/path/to/option2'>Option 2</Link>
+    </Menu.Item>
+    <Menu.Item key='3'>
+      <Link href='/path/to/option3'>Option 3</Link>
+    </Menu.Item>
+  </Menu>
+);
 
 const SimpanPinjam = () => {
   const tableRef = useRef(null);
@@ -316,7 +333,7 @@ const SimpanPinjam = () => {
       <div className={styles.header}>
         <h1>Simpan Pinjam</h1>
         <div className={styles.button}>
-          <Link href=''>
+          <Dropdown overlay={menu} placement='bottomLeft'>
             <Button
               style={{
                 backgroundColor: "#ffcf00",
@@ -324,9 +341,9 @@ const SimpanPinjam = () => {
                 marginBottom: "3rem",
               }}
             >
-              Buat Baru
+              Buat Baru <DownOutlined />
             </Button>
-          </Link>
+          </Dropdown>
           <Button
             style={{
               marginLeft: "60rem",
