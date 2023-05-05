@@ -223,7 +223,7 @@ const LaporanLabaRugi = () => {
       pdf.addImage(imgData, "PNG", 20, 40, 550, 0);
       pdf.setFontSize(12);
       pdf.text(`Printed on: ${dateString}`, 20, 30);
-      pdf.save("Laporan Assets.pdf");
+      pdf.save("Laporan Laba Rugi.pdf");
     });
   };
 
