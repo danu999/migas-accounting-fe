@@ -5,11 +5,13 @@ import Highlighter from "react-highlight-words";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useRef, useState } from "react";
-import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
 import {
   DownloadOutlined,
   PrinterOutlined,
   DownOutlined,
+  UpOutlined,
+  SearchOutlined,
+  SyncOutlined,
 } from "@ant-design/icons";
 import { Button, Input, Space, Table, Menu, Dropdown } from "antd";
 
@@ -118,13 +120,16 @@ const data = [
 const menu = (
   <Menu>
     <Menu.Item key='1'>
-      <Link href='/path/to/option1'>Option 1</Link>
+      <Link href='/pinjamanggota'>Pinjam Anggota</Link>
     </Menu.Item>
     <Menu.Item key='2'>
-      <Link href='/path/to/option2'>Option 2</Link>
+      <Link href='/path/to/option2'>Bayar Pinjam Anggota</Link>
     </Menu.Item>
     <Menu.Item key='3'>
-      <Link href='/path/to/option3'>Option 3</Link>
+      <Link href='/path/to/option3'>Pinjam Usaha</Link>
+    </Menu.Item>
+    <Menu.Item key='4'>
+      <Link href='/path/to/option3'>Bayar Pinjam Usaha</Link>
     </Menu.Item>
   </Menu>
 );
@@ -145,10 +150,13 @@ const SimpanPinjam = () => {
     setSearchText(selectedKeys[0]);
     setSearchedColumn(dataIndex);
   };
+
   const handleReset = clearFilters => {
     clearFilters();
     setSearchText("");
   };
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const exportPDF = () => {
     const now = new Date();
@@ -340,8 +348,10 @@ const SimpanPinjam = () => {
                 marginTop: "4rem",
                 marginBottom: "3rem",
               }}
+              onMouseEnter={() => setIsOpen(true)}
+              onMouseLeave={() => setIsOpen(false)}
             >
-              Buat Baru <DownOutlined />
+              Buat Baru {isOpen ? <UpOutlined /> : <DownOutlined />}
             </Button>
           </Dropdown>
           <Button
