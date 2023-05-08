@@ -395,6 +395,18 @@ const LaporanNeracaLajur = () => {
           format='DD-MM-YYYY'
           onChange={handleDateRangeChange}
         />
+        <Link href='/laporan'>
+          <Button
+            style={{
+              marginLeft: "40rem",
+              marginRight: "1rem",
+              borderColor: "black",
+            }}
+            icon={<CaretLeftOutlined />}
+          >
+            Back
+          </Button>
+        </Link>
         <Button
           style={{
             marginLeft: "49rem",
