@@ -1,8 +1,14 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
-import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import {
+  DownloadOutlined,
+  PrinterOutlined,
+  SearchOutlined,
+  SyncOutlined,
+  CaretLeftOutlined,
+} from "@ant-design/icons";
 import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
 import { useRef, useState } from "react";
 import moment from "moment";
@@ -389,9 +395,20 @@ const LaporanLabaRugi = () => {
           format='DD-MM-YYYY'
           onChange={handleDateRangeChange}
         />
+        <Link href='/laporan'>
+          <Button
+            style={{
+              marginLeft: "40rem",
+              marginRight: "1rem",
+              borderColor: "black",
+            }}
+            icon={<CaretLeftOutlined />}
+          >
+            Back
+          </Button>
+        </Link>
         <Button
           style={{
-            marginLeft: "49rem",
             marginRight: "1rem",
             borderColor: "black",
           }}

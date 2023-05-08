@@ -409,7 +409,6 @@ const LaporanNeracaLajur = () => {
         </Link>
         <Button
           style={{
-            marginLeft: "49rem",
             marginRight: "1rem",
             borderColor: "black",
           }}
