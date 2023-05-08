@@ -1,6 +1,7 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
+import Link from "next/link";
 import {
   DownloadOutlined,
   PrinterOutlined,
@@ -324,17 +325,18 @@ const LaporanNeraca = () => {
           format='DD-MM-YYYY'
           onChange={handleDateRangeChange}
         />
-        <Button
-          style={{
-            marginLeft: "40rem",
-            marginRight: "1rem",
-            borderColor: "black",
-          }}
-          icon={<CaretLeftOutlined />}
-          onClick={exportPDF}
-        >
-          Back
-        </Button>
+        <Link href='/dataakun'>
+          <Button
+            style={{
+              marginLeft: "40rem",
+              marginRight: "1rem",
+              borderColor: "black",
+            }}
+            icon={<CaretLeftOutlined />}
+          >
+            Back
+          </Button>
+        </Link>
         <Button
           style={{
             marginRight: "1rem",
