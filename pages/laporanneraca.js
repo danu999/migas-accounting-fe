@@ -80,6 +80,38 @@ const data = [
     debit: "",
     kredit: "10.000.000.000,00",
   },
+  {
+    key: "7",
+    kodeakun: 1011,
+    tanggal: "20-06-2023",
+    namaakun: "BANK MANDIRI",
+    debit: "6.000.000.000,00",
+    kredit: "",
+  },
+  {
+    key: "8",
+    kodeakun: 1011,
+    tanggal: "01-07-2023",
+    namaakun: "KAS",
+    debit: "4.000.000.000,00",
+    kredit: "",
+  },
+  {
+    key: "9",
+    kodeakun: 1012,
+    tanggal: "20-08-2023",
+    namaakun: "BANK BRI",
+    debit: "",
+    kredit: "4.000.000.000,00",
+  },
+  {
+    key: "10",
+    kodeakun: 1010,
+    tanggal: "01-09-2023",
+    namaakun: "ACTIVA LANCAR",
+    debit: "",
+    kredit: "8.000.000.000,00",
+  },
 ];
 
 const LaporanNeraca = () => {
