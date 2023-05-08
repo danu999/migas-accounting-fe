@@ -123,13 +123,13 @@ const menu = (
       <Link href='/pinjamanggota'>Pinjam Anggota</Link>
     </Menu.Item>
     <Menu.Item key='2'>
-      <Link href='/path/to/option2'>Bayar Pinjam Anggota</Link>
+      <Link href='/bayarpinjamanggota'>Bayar Pinjam Anggota</Link>
     </Menu.Item>
     <Menu.Item key='3'>
-      <Link href='/path/to/option3'>Pinjam Usaha</Link>
+      <Link href='/pinjamusaha'>Pinjam Usaha</Link>
     </Menu.Item>
     <Menu.Item key='4'>
-      <Link href='/path/to/option3'>Bayar Pinjam Usaha</Link>
+      <Link href='/bayarpinjamusaha'>Bayar Pinjam Usaha</Link>
     </Menu.Item>
   </Menu>
 );
