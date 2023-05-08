@@ -1,8 +1,14 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
-import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import {
+  DownloadOutlined,
+  PrinterOutlined,
+  SearchOutlined,
+  SyncOutlined,
+  CaretLeftOutlined,
+} from "@ant-design/icons";
 import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
 import { useRef, useState } from "react";
 import moment from "moment";
@@ -212,12 +218,18 @@ const LaporanSubBisnis = () => {
     clearFilters();
     setSearchText("");
   };
+
   const exportPDF = () => {
+    const now = new Date();
+    const dateString = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
+
     html2canvas(tableRef.current).then(canvas => {
       const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("l", "pt", "a4");
-      pdf.addImage(imgData, "PNG", 10, 10);
-      pdf.save("Laporan Neraca Lajur.pdf");
+      const pdf = new jsPDF("p", "pt", "a4");
+      pdf.addImage(imgData, "PNG", 20, 40, 550, 0);
+      pdf.setFontSize(12);
+      pdf.text(`Printed on: ${dateString}`, 20, 30);
+      pdf.save("Laporan Sub Bisnis.pdf");
     });
   };
 
@@ -385,9 +397,20 @@ const LaporanSubBisnis = () => {
           format='DD-MM-YYYY'
           onChange={handleDateRangeChange}
         />
+        <Link href='/laporan'>
+          <Button
+            style={{
+              marginLeft: "40rem",
+              marginRight: "1rem",
+              borderColor: "black",
+            }}
+            icon={<CaretLeftOutlined />}
+          >
+            Back
+          </Button>
+        </Link>
         <Button
           style={{
-            marginLeft: "49rem",
             marginRight: "1rem",
             borderColor: "black",
           }}

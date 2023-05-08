@@ -1,9 +1,15 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
-import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
-import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
+import Link from "next/link";
+import {
+  DownloadOutlined,
+  PrinterOutlined,
+  SearchOutlined,
+  SyncOutlined,
+  CaretLeftOutlined,
+} from "@ant-design/icons";
+import { DatePicker, Typography, Space, Button, Input, Table, Tag } from "antd";
 import { useRef, useState } from "react";
 import moment from "moment";
 import html2canvas from "html2canvas";
@@ -34,147 +40,138 @@ const rangePresets = [
 const data = [
   {
     key: "1",
-    tanggal: "01-02-2023",
-    kodeakun: 1010,
-    namaakun: "ACTIVA LANCAR",
-    debit: "",
-    kredit: "5.000.000.000,00",
+    tanggalakuisisi: "01-05-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: ["Accept"],
   },
   {
     key: "2",
-    tanggal: "02-03-2023",
-    kodeakun: 1010,
-    namaakun: "ACTIVA LANCAR",
-    debit: "",
-    kredit: "6.000.000.000,00",
+    tanggalakuisisi: "15-05-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: ["Accept"],
   },
   {
     key: "3",
-    kodeakun: 1011,
-    tanggal: "20-03-2023",
-    namaakun: "BANK MANDIRI",
-    debit: "7.000.000.000,00",
-    kredit: "",
+    tanggalakuisisi: "20-05-2023",
+    detailassets: "(1033) Printer",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "5.100.000,00",
+    nilaibukuakuisisi: "5.100.000,00",
+    status: ["Accept"],
   },
   {
     key: "4",
-    kodeakun: 1011,
-    tanggal: "01-04-2023",
-    namaakun: "KAS",
-    debit: "8.000.000.000,00",
-    kredit: "",
+    tanggalakuisisi: "01-06-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: ["Pending"],
   },
   {
     key: "5",
-    kodeakun: 1012,
-    tanggal: "20-04-2023",
-    namaakun: "BANK BRI",
-    debit: "",
-    kredit: "5.000.000.000,00",
+    tanggalakuisisi: "10-06-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: ["Pending"],
   },
   {
     key: "6",
-    kodeakun: 1010,
-    tanggal: "01-05-2023",
-    namaakun: "ACTIVA LANCAR",
-    debit: "",
-    kredit: "10.000.000.000,00",
+    tanggalakuisisi: "01-07-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: ["Accept"],
   },
   {
     key: "7",
-    kodeakun: 1010,
-    tanggal: "11-05-2023",
-    namaakun: "ACTIVA LANCAR",
-    debit: "9.000.000.000,00",
-    kredit: "",
+    tanggalakuisisi: "10-07-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: ["Accept"],
   },
   {
     key: "8",
-    kodeakun: 1012,
-    tanggal: "20-05-2023",
-    namaakun: "BANK BRI",
-    debit: "8.000.000.000,00",
-    kredit: "",
+    tanggalakuisisi: "15-07-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: ["Pending"],
   },
   {
     key: "9",
-    kodeakun: 1012,
-    tanggal: "22-05-2023",
-    namaakun: "BANK BRI",
-    debit: "",
-    kredit: "10.000.000.000,00",
+    tanggalakuisisi: "20-07-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "1.500.000,00",
+    nilaibukuakuisisi: "1.500.000,00",
+    status: ["Pending"],
   },
   {
     key: "10",
-    kodeakun: 1011,
-    tanggal: "23-05-2023",
-    namaakun: "KAS",
-    debit: "",
-    kredit: "7.000.000.000,00",
+    tanggalakuisisi: "25-07-2023",
+    detailassets: "(1044) Power Bank",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "2.100.000,00",
+    nilaibukuakuisisi: "2.100.000,00",
+    status: ["Reject"],
   },
   {
     key: "11",
-    kodeakun: 1011,
-    tanggal: "01-06-2023",
-    namaakun: "KAS",
-    debit: "",
-    kredit: "4.000.000.000,00",
+    tanggalakuisisi: "27-07-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: ["Reject"],
   },
   {
     key: "12",
-    kodeakun: 1010,
-    tanggal: "10-06-2023",
-    namaakun: "ACTIVA LANCAR",
-    debit: "",
-    kredit: "8.000.000.000,00",
+    tanggalakuisisi: "01-08-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "200.000,00",
+    nilaibukuakuisisi: "200.000,00",
+    status: ["Accept"],
   },
   {
     key: "13",
-    kodeakun: 1010,
-    tanggal: "15-06-2023",
-    namaakun: "ACTIVA LANCAR",
-    debit: "9.000.000.000,00",
-    kredit: "",
+    tanggalakuisisi: "10-08-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "200.000,00",
+    nilaibukuakuisisi: "200.000,00",
+    status: ["Accept"],
   },
   {
     key: "14",
-    kodeakun: 1010,
-    tanggal: "20-06-2023",
-    namaakun: "ACTIVA LANCAR",
-    debit: "10.000.000.000,00",
-    kredit: "",
+    tanggalakuisisi: "20-08-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "200.000,00",
+    nilaibukuakuisisi: "200.000,00",
+    status: ["Accept"],
   },
   {
     key: "15",
-    kodeakun: 1012,
-    tanggal: "22-06-2023",
-    namaakun: "BANK BRI",
-    debit: "",
-    kredit: "8.000.000.000,00",
-  },
-  {
-    key: "16",
-    kodeakun: 1012,
-    tanggal: "23-06-2023",
-    namaakun: "BANK BRI",
-    debit: "",
-    kredit: "7.000.000.000,00",
-  },
-  {
-    key: "17",
-    kodeakun: 1010,
-    tanggal: "01-07-2023",
-    namaakun: "ACTIVA LANCAR",
-    debit: "7.000.000.000,00",
-    kredit: "",
-  },
-  {
-    key: "18",
-    kodeakun: 1010,
-    tanggal: "20-07-2023",
-    namaakun: "ACTIVA LANCAR",
-    debit: "10.000.000.000,00",
-    kredit: "",
+    tanggalakuisisi: "23-08-2023",
+    detailassets: "(1022) Kertas",
+    akunassets: "(1-00701) Asset Tetap - Perlengkapan Kantor",
+    biayaakuisisi: "100.000,00",
+    nilaibukuakuisisi: "100.000,00",
+    status: ["Reject"],
   },
 ];
 
@@ -194,7 +191,7 @@ const LaporanAssets = () => {
     const endDate = moment(dateString[1], "DD-MM-YYYY");
 
     const filtered = data.filter(item => {
-      const itemDate = moment(item.tanggal, "DD-MM-YYYY");
+      const itemDate = moment(item.tanggalakuisisi, "DD-MM-YYYY");
       return (
         itemDate.isSameOrAfter(startDate) && itemDate.isSameOrBefore(endDate)
       );
@@ -342,39 +339,65 @@ const LaporanAssets = () => {
 
   const columns = [
     {
-      title: "Tanggal",
-      dataIndex: "tanggal",
-      key: "tanggal",
-      width: "20%",
-      ...getColumnSearchProps("tanggal"),
+      title: "Tanggal Akuisisi",
+      dataIndex: "tanggalakuisisi",
+      key: "tanggalakuisisi",
+      width: "15%",
+      ...getColumnSearchProps("tanggalakuisisi"),
     },
     {
-      title: "Kode Akun",
-      dataIndex: "kodeakun",
-      key: "kodeakun",
-      width: "20%",
-      ...getColumnSearchProps("kodeakun"),
+      title: "Detail Assets",
+      dataIndex: "detailassets",
+      key: "detailassets",
+      width: "15%",
+      ...getColumnSearchProps("detailassets"),
     },
     {
-      title: "Nama Akun",
-      dataIndex: "namaakun",
-      key: "namaakun",
-      width: "20%",
-      ...getColumnSearchProps("namaakun"),
+      title: "Akun Assets",
+      dataIndex: "akunassets",
+      key: "akunassets",
+      width: "25%",
+      ...getColumnSearchProps("akunassets"),
     },
     {
-      title: "Debit",
-      dataIndex: "debit",
-      key: "debit",
+      title: "Biaya Akuisisi",
+      dataIndex: "biayaakuisisi",
+      key: "biayaakuisisi",
       width: "20%",
-      ...getColumnSearchProps("debit"),
+      ...getColumnSearchProps("biayaakuisisi"),
     },
     {
-      title: "Kredit",
-      dataIndex: "kredit",
-      key: "kredit",
-      width: "30%",
-      ...getColumnSearchProps("kredit"),
+      title: "Nilai Buku Akuisisi",
+      dataIndex: "nilaibukuakuisisi",
+      key: "nilaibukuakuisisi",
+      width: "20%",
+      ...getColumnSearchProps("nilaibukuakuisisi"),
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
+      key: "status",
+      width: "20%",
+      ...getColumnSearchProps("status"),
+      render: status => (
+        <span>
+          {Array.isArray(status) &&
+            status.map(tag => {
+              let color = "green";
+              if (tag === "Pending") {
+                color = "grey";
+              }
+              if (tag === "Reject") {
+                color = "red";
+              }
+              return (
+                <Tag color={color} key={tag}>
+                  {tag.toUpperCase()}
+                </Tag>
+              );
+            })}
+        </span>
+      ),
     },
   ];
   return (
@@ -390,9 +413,20 @@ const LaporanAssets = () => {
           format='DD-MM-YYYY'
           onChange={handleDateRangeChange}
         />
+        <Link href='/laporan'>
+          <Button
+            style={{
+              marginLeft: "40rem",
+              marginRight: "1rem",
+              borderColor: "black",
+            }}
+            icon={<CaretLeftOutlined />}
+          >
+            Back
+          </Button>
+        </Link>
         <Button
           style={{
-            marginLeft: "49rem",
             marginRight: "1rem",
             borderColor: "black",
           }}
