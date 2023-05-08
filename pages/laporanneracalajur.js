@@ -1,8 +1,14 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
-import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
+import Link from "next/link";
+import {
+  DownloadOutlined,
+  PrinterOutlined,
+  SearchOutlined,
+  SyncOutlined,
+  CaretLeftOutlined,
+} from "@ant-design/icons";
 import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
 import { useRef, useState } from "react";
 import moment from "moment";
