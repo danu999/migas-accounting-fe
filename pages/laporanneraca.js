@@ -1,8 +1,13 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Laporan.module.css";
 import Highlighter from "react-highlight-words";
-import { SearchOutlined, SyncOutlined } from "@ant-design/icons";
-import { DownloadOutlined, PrinterOutlined } from "@ant-design/icons";
+import {
+  DownloadOutlined,
+  PrinterOutlined,
+  SearchOutlined,
+  SyncOutlined,
+  CaretLeftOutlined,
+} from "@ant-design/icons";
 import { DatePicker, Typography, Space, Button, Input, Table } from "antd";
 import { useRef, useState } from "react";
 import moment from "moment";
@@ -321,7 +326,17 @@ const LaporanNeraca = () => {
         />
         <Button
           style={{
-            marginLeft: "49rem",
+            marginLeft: "40rem",
+            marginRight: "1rem",
+            borderColor: "black",
+          }}
+          icon={<CaretLeftOutlined />}
+          onClick={exportPDF}
+        >
+          Back
+        </Button>
+        <Button
+          style={{
             marginRight: "1rem",
             borderColor: "black",
           }}
