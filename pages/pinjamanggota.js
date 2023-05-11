@@ -18,7 +18,8 @@ const PinjamAnggota = () => {
   return (
     <Layout>
       <div className={styles.header}>
-        <h1>Input Data Simpan Pinjam Anggota</h1>
+        <h1>Simpan Pinjam Anggota</h1>
+        <h2 className={styles.pinjamanggota}>Input Pinjam Anggota</h2>
         <Form onFinish={onFinish} style={{ marginTop: "4rem", width: 1000 }}>
           <Form.Item name={"tanggaltransaksi"} label='Tanggal Transaksi'>
             <DatePicker
