@@ -13,6 +13,8 @@ const PinjamAnggota = () => {
     console.log({ values });
   };
 
+  const initialFields = [...Array(5)].map((_, index) => ({ key: index }));
+
   return (
     <Layout>
       <div className={styles.header}>
@@ -30,7 +32,7 @@ const PinjamAnggota = () => {
               }}
             />
           </Form.Item>
-          <Form.List name={"nama"}>
+          <Form.List name={"nama"} initialValue={initialFields}>
             {(fields, { add, remove }) => (
               <>
                 {fields.map((field, index) => {
@@ -99,14 +101,14 @@ const PinjamAnggota = () => {
             )}
           </Form.List>
           <Form.Item label=' ' colon={false}>
-            <Link href='/assets'>
+            <Link href='/simpanpinjam'>
               <Button
                 danger
                 type='primary'
                 style={{
-                  marginRight: "1.5rem",
                   color: "black",
-                  marginLeft: "2rem",
+                  marginLeft: "70rem",
+                  position: "absolute",
                 }}
               >
                 Batal
@@ -118,9 +120,10 @@ const PinjamAnggota = () => {
               style={{
                 backgroundColor: "#ffcf00",
                 color: "black",
+                marginLeft: "75rem",
               }}
             >
-              Buat Asset
+              Submit
             </Button>
           </Form.Item>
         </Form>
