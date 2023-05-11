@@ -1,5 +1,6 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Simpanpinjam.module.css";
+import Link from "next/link";
 import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
 import { DatePicker, Form, Button, Input, Space, Select } from "antd";
 
@@ -59,7 +60,9 @@ const PinjamAnggota = () => {
                       <Form.Item
                         name={[field.name, "transferdari"]}
                         label={"Transfer Dari :"}
-                        style={{ width: 320 }}
+                        style={{
+                          width: 320,
+                        }}
                       >
                         <Select placeholder='Pilih'>
                           <Option value='bri'>1012 - BRI</Option>
@@ -67,19 +70,16 @@ const PinjamAnggota = () => {
                           <Option value='cash'>1000 - CASH</Option>
                         </Select>
                       </Form.Item>
-                      <Form.Item style={{ width: 39 }}>
-                        <Button
-                          icon={<DeleteOutlined />}
-                          block
-                          onClick={() => {
-                            remove(field.name);
-                          }}
-                          style={{
-                            color: "red",
-                            fontSize: "17px",
-                          }}
-                        ></Button>
-                      </Form.Item>
+                      <DeleteOutlined
+                        onClick={() => {
+                          remove(field.name);
+                        }}
+                        style={{
+                          color: "red",
+                          fontSize: "25px",
+                          marginBottom: "22px",
+                        }}
+                      />
                     </Space>
                   );
                 })}
@@ -98,6 +98,31 @@ const PinjamAnggota = () => {
               </>
             )}
           </Form.List>
+          <Form.Item label=' ' colon={false}>
+            <Link href='/assets'>
+              <Button
+                danger
+                type='primary'
+                style={{
+                  marginRight: "1.5rem",
+                  color: "black",
+                  marginLeft: "2rem",
+                }}
+              >
+                Batal
+              </Button>
+            </Link>
+            <Button
+              type='primary'
+              htmlType='submit'
+              style={{
+                backgroundColor: "#ffcf00",
+                color: "black",
+              }}
+            >
+              Buat Asset
+            </Button>
+          </Form.Item>
         </Form>
       </div>
     </Layout>
