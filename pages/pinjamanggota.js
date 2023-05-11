@@ -1,9 +1,10 @@
 import Layout from "@/layout/Layout";
 import styles from "@/styles/Simpanpinjam.module.css";
-import { PlusOutlined } from "@ant-design/icons";
-import { DatePicker, Form, Button, Input, Space } from "antd";
+import { PlusOutlined, DeleteOutlined } from "@ant-design/icons";
+import { DatePicker, Form, Button, Input, Space, Select } from "antd";
 
 const PinjamAnggota = () => {
+  const { Option } = Select;
   const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
@@ -37,31 +38,61 @@ const PinjamAnggota = () => {
                       <Form.Item
                         name={[field.name, "nama"]}
                         label={`${index + 1} . Nama`}
+                        style={{ width: 300 }}
                       >
                         <Input placeholder='Nama' />
                       </Form.Item>
-                      <Form.Item name={[field.name, "deskripsi"]}>
+                      <Form.Item
+                        name={[field.name, "deskripsi"]}
+                        label={"Deskripsi :"}
+                        style={{ width: 300 }}
+                      >
                         <Input placeholder='Deskripsi' />
                       </Form.Item>
-                      <Form.Item name={[field.name, "jumlah"]}>
+                      <Form.Item
+                        name={[field.name, "jumlah"]}
+                        label={"Jumlah :"}
+                        style={{ width: 300 }}
+                      >
                         <Input placeholder='Jumlah' />
                       </Form.Item>
-                      <Form.Item name={[field.name, "transferdari"]}>
-                        <Input placeholder='Transfer Dari' />
+                      <Form.Item
+                        name={[field.name, "transferdari"]}
+                        label={"Transfer Dari :"}
+                        style={{ width: 320 }}
+                      >
+                        <Select placeholder='Pilih'>
+                          <Option value='bri'>1012 - BRI</Option>
+                          <Option value='mandiri'>1013 - MANDIRI</Option>
+                          <Option value='cash'>1000 - CASH</Option>
+                        </Select>
+                      </Form.Item>
+                      <Form.Item style={{ width: 39 }}>
+                        <Button
+                          icon={<DeleteOutlined />}
+                          block
+                          onClick={() => {
+                            remove(field.name);
+                          }}
+                          style={{
+                            color: "red",
+                            fontSize: "17px",
+                          }}
+                        ></Button>
                       </Form.Item>
                     </Space>
                   );
                 })}
-                <Form.Item style={{ width: 150 }}>
+                <Form.Item style={{ width: 133 }}>
                   <Button
                     icon={<PlusOutlined />}
-                    type='dashed'
                     block
                     onClick={() => {
                       add();
                     }}
+                    style={{ backgroundColor: "#ffcf00", color: "black" }}
                   >
-                    Add Data
+                    Tambah Data
                   </Button>
                 </Form.Item>
               </>
