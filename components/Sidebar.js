@@ -3,20 +3,33 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Avatar, Typography, Button } from "antd";
-import { LayoutFilled } from "@ant-design/icons";
-import { BookFilled } from "@ant-design/icons";
-import { SnippetsFilled } from "@ant-design/icons";
-import { InteractionFilled } from "@ant-design/icons";
-import { AccountBookFilled } from "@ant-design/icons";
-import { ContactsFilled } from "@ant-design/icons";
-import { GoldFilled } from "@ant-design/icons";
-import { ProjectFilled } from "@ant-design/icons";
-import { ShopFilled } from "@ant-design/icons";
-import { CarFilled } from "@ant-design/icons";
-import { SlackCircleFilled } from "@ant-design/icons";
-import { CaretDownFilled } from "@ant-design/icons";
-import { CaretUpFilled } from "@ant-design/icons";
-import { LogoutOutlined } from "@ant-design/icons";
+import {
+  LayoutFilled,
+  BookFilled,
+  SnippetsFilled,
+  InteractionFilled,
+  AccountBookFilled,
+  ContactsFilled,
+  GoldFilled,
+  ProjectFilled,
+  ShopFilled,
+  CarFilled,
+  SlackCircleFilled,
+  CaretDownFilled,
+  CaretUpFilled,
+  LogoutOutlined,
+} from "@ant-design/icons";
+
+AccountBookFilled;
+ContactsFilled;
+GoldFilled;
+ProjectFilled;
+ShopFilled;
+CarFilled;
+SlackCircleFilled;
+CaretDownFilled;
+CaretUpFilled;
+LogoutOutlined;
 
 const sidebarItems = [
   {
