@@ -120,9 +120,7 @@ const Sidebar = () => {
                   <li className='sidebar__item' key={name}>
                     <div
                       style={{ cursor: "pointer" }}
-                      className={`sidebar__link ${
-                        router.pathname === href ? "sidebar__link--active" : ""
-                      }`}
+                      className='sidebar__link'
                       onClick={handleSubMenuClick}
                     >
                       <span className='sidebar__icon'>
