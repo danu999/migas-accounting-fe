@@ -136,9 +136,8 @@ const Jurnal = () => {
 
   const loadData = async () => {
     setLoading(true);
-    const response = await axios.get(
-      "http://192.168.254.113:8000/api/journals"
-    );
+    const response = await axios.get("http://localhost:3005/api/journals");
+    // console.log(response);
     setGridData(response.data);
     setLoading(false);
   };
