@@ -136,7 +136,9 @@ const Jurnal = () => {
 
   const loadData = async () => {
     setLoading(true);
-    const response = await axios.get("http://localhost:3005/");
+    const response = await axios.get(
+      "http://localhost:3005/datamaster/journal"
+    );
     // console.log(response);
     setGridData(response.data);
     setLoading(false);
