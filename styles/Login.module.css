@@ -2,6 +2,7 @@
 
 .login {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -13,4 +14,9 @@
   border-radius: 5%;
   background-color: rgb(175, 163, 163);
   border: transparent;
+  /* background-color: transparent; */
+}
+
+.typography {
+  font-family: "Poppins", sans-serif;
 }
