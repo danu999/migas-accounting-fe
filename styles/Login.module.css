@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  width: 30rem;
+  height: 40rem;
+  border-radius: 5%;
+  background-color: rgb(175, 163, 163);
+  border: transparent;
+}
