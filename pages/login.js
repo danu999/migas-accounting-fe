@@ -70,7 +70,7 @@ const Login = () => {
           }}
           style={{
             width: 350,
-            marginRight: "7rem",
+            marginRight: "6.5rem",
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -98,13 +98,14 @@ const Login = () => {
           >
             <Input.Password placeholder='Enter Your password' />
           </Form.Item>
+          <button className={styles.buttonsignup}>Sign Up</button>
           <Form.Item
             wrapperCol={{
               offset: 9,
               span: 20,
             }}
           >
-            <button className={styles.button}>Login</button>
+            <button className={styles.buttonlogin}>Login</button>
           </Form.Item>
         </Form>
       </Card>

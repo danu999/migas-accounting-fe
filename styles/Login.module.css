@@ -28,8 +28,8 @@
   color: rgb(255, 255, 255);
 }
 
-.button {
-  margin-top: 2rem;
+.buttonlogin {
+  margin-top: 1rem;
   margin-right: 3rem;
   margin-left: 2.3rem;
   background-color: #ffcf00;
@@ -41,7 +41,23 @@
   cursor: pointer;
 }
 
-.button:hover {
+.buttonlogin:hover {
+  background-color: rgba(250, 175, 14, 0.671);
+  border-color: rgba(250, 175, 14, 0.671);
+}
+
+.buttonsignup {
+  margin-left: 7rem;
+  width: 3.5rem;
+  height: 1.5rem;
+  color: white;
+  background-color: #ffcf00;
+  border: none;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.buttonsignup:hover {
   background-color: rgba(250, 175, 14, 0.671);
   border-color: rgba(250, 175, 14, 0.671);
 }
