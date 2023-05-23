@@ -1,5 +1,5 @@
 import styles from "@/styles/Login.module.css";
-import { Button, Form, Input, Card, Typography } from "antd";
+import { Form, Input, Card, Typography } from "antd";
 import Image from "next/image";
 import bg from "@/public/bg2.jpg";
 const onFinish = values => {
@@ -72,16 +72,12 @@ const Login = () => {
             width: 350,
             marginRight: "7rem",
           }}
-          initialValues={{
-            remember: true,
-          }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete='off'
         >
           <Form.Item
             label='Username'
-            name='username'
             rules={[
               {
                 required: true,
@@ -91,10 +87,8 @@ const Login = () => {
           >
             <Input placeholder='Enter Your username' />
           </Form.Item>
-
           <Form.Item
             label='Password'
-            name='password'
             rules={[
               {
                 required: true,
