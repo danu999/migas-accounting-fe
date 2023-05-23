@@ -37,7 +37,7 @@ const Login = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            marginLeft: "5.5rem",
+            marginLeft: "3rem",
           }}
         ></Image>
         <Typography
@@ -69,13 +69,14 @@ const Login = () => {
           className={styles.form}
           name='basic'
           labelCol={{
+            fontSize: 15,
             span: 8,
           }}
           wrapperCol={{
             span: 20,
           }}
           style={{
-            maxWidth: 600,
+            width: 350,
           }}
           initialValues={{
             remember: true,
@@ -87,6 +88,7 @@ const Login = () => {
           <Form.Item
             label='Username'
             name='username'
+            placeholder='Input Your Username'
             rules={[
               {
                 required: true,
@@ -112,12 +114,12 @@ const Login = () => {
           <Form.Item
             wrapperCol={{
               offset: 9,
-              span: 16,
+              span: 20,
             }}
           >
-            <Button type='primary' htmlType='submit'>
+            <button className={styles.button} htmlType='submit'>
               Login
-            </Button>
+            </button>
           </Form.Item>
         </Form>
       </Card>
