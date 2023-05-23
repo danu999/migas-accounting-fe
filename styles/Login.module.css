@@ -19,17 +19,19 @@
 }
 
 .form {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .typography {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
+  color: rgb(255, 255, 255);
 }
 
 .button {
   margin-top: 2rem;
   margin-right: 3rem;
+  margin-left: 2rem;
   background-color: #ffcf00;
   width: 8rem;
   height: 2rem;

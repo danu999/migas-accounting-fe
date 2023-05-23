@@ -25,6 +25,7 @@ const Login = () => {
           display: "flex",
           justifyContent: "center",
           flexDirection: "column",
+          alignItems: "center",
         }}
       >
         <Image
@@ -33,22 +34,16 @@ const Login = () => {
           height={250}
           alt='Logo Picture'
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            marginLeft: "3rem",
+            marginBottom: "1rem",
+            marginTop: "3rem",
           }}
         ></Image>
         <Typography
           className={styles.typography}
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "1rem",
-            fontSize: "20px",
+            fontSize: "30px",
+            textShadow:
+              "0.5px 0.5px 0 black, -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black",
           }}
         >
           Sistem Akuntansi
@@ -56,11 +51,10 @@ const Login = () => {
         <Typography
           className={styles.typography}
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            fontSize: "20px",
+            fontSize: "30px",
+            textShadow:
+              "0.5px 0.5px 0 black, -0.5px -0.5px 0 black, 0.5px -0.5px 0 black, -0.5px 0.5px 0 black",
+            marginBottom: "2rem",
           }}
         >
           Koperasi Primadaya Migas
@@ -69,7 +63,6 @@ const Login = () => {
           className={styles.form}
           name='basic'
           labelCol={{
-            fontSize: 15,
             span: 8,
           }}
           wrapperCol={{
@@ -77,6 +70,7 @@ const Login = () => {
           }}
           style={{
             width: 350,
+            marginRight: "6rem",
           }}
           initialValues={{
             remember: true,
@@ -117,9 +111,7 @@ const Login = () => {
               span: 20,
             }}
           >
-            <button className={styles.button} htmlType='submit'>
-              Login
-            </button>
+            <button className={styles.button}>Login</button>
           </Form.Item>
         </Form>
       </Card>
