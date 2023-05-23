@@ -70,7 +70,7 @@ const Login = () => {
           }}
           style={{
             width: 350,
-            marginRight: "6rem",
+            marginRight: "7rem",
           }}
           initialValues={{
             remember: true,
@@ -82,7 +82,6 @@ const Login = () => {
           <Form.Item
             label='Username'
             name='username'
-            placeholder='Input Your Username'
             rules={[
               {
                 required: true,
@@ -90,7 +89,7 @@ const Login = () => {
               },
             ]}
           >
-            <Input />
+            <Input placeholder='Enter Your username' />
           </Form.Item>
 
           <Form.Item
@@ -103,7 +102,7 @@ const Login = () => {
               },
             ]}
           >
-            <Input.Password />
+            <Input.Password placeholder='Enter Your password' />
           </Form.Item>
           <Form.Item
             wrapperCol={{

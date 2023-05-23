@@ -15,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   border: transparent;
-  background-color: rgba(172, 172, 172, 0.479)
+  background-color: rgba(172, 172, 172, 0.479);
 }
 
 .form {
@@ -31,7 +31,7 @@
 .button {
   margin-top: 2rem;
   margin-right: 3rem;
-  margin-left: 2rem;
+  margin-left: 2.2rem;
   background-color: #ffcf00;
   width: 8rem;
   height: 2rem;
