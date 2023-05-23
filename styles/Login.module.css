@@ -29,13 +29,13 @@
 }
 
 .buttonlogin {
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-right: 3rem;
   margin-left: 2.3rem;
   background-color: #ffcf00;
   width: 8rem;
   height: 2rem;
-  color: white;
+  color: black;
   border: none;
   border-radius: 5%;
   cursor: pointer;
@@ -47,13 +47,13 @@
 }
 
 .buttonsignup {
-  margin-left: 7rem;
+  margin-left: 7.3rem;
   width: 3.5rem;
   height: 1.5rem;
-  color: white;
-  background-color: #ffcf00;
+  color: rgb(12, 12, 12);
+  background-color: #ffcf00;  
   border: none;
-  border-radius: 5%;
+  border-radius: 10%;
   cursor: pointer;
 }
 
