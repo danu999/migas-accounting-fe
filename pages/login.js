@@ -1,35 +1,43 @@
 import styles from "@/styles/Login.module.css";
 import { Form, Input, Card, Typography } from "antd";
+import { useSidebarContext } from "@/context/SidebarContext";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import bg from "@/public/bg2.jpg";
 
-const onFinish = values => {
-  // compare user dari context sama dari inputan
-  const { username, password } = values;
-  const user = {
-    username: "onta",
-    password: "onta123",
-  };
-  console.log(username, password);
-  if (username === user.username && password === user.password) {
-    // Set login status in local storage
-    localStorage.setItem("isLoggedIn", true);
-    // Redirect to the main page
-    router.push("/");
-  } else {
-    console.log("Login failed");
-  }
-};
-// console.log("Success:", values);
-const onFinishFailed = errorInfo => {
-  console.log("Failed:", errorInfo);
-};
-
 const Login = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const { isLoggedIn } = useSidebarContext();
+
+  // Redirect to main page if user is already logged in
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push("/");
+    }
+  }, [isLoggedIn, router]);
+
+  const onFinish = values => {
+    const { username, password } = values;
+    const user = {
+      username: "onta",
+      password: "onta123",
+    };
+
+    if (username === user.username && password === user.password) {
+      // Set login status in local storage
+      localStorage.setItem("isLoggedIn", true);
+      // Redirect to the main page
+      router.push("/");
+    } else {
+      console.log("Login failed");
+    }
+  };
+
+  const onFinishFailed = errorInfo => {
+    console.log("Failed:", errorInfo);
+  };
 
   return (
     <div
@@ -120,6 +128,7 @@ const Login = () => {
             <Input.Password placeholder='Enter Your password' />
           </Form.Item>
           <button className={styles.buttonsignup}>Sign Up</button>
+          <Card className={styles.linecard}></Card>
           <Form.Item
             wrapperCol={{
               offset: 9,
