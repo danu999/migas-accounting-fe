@@ -2,21 +2,16 @@ import styles from "@/styles/Login.module.css";
 import { Form, Input, Card, Typography } from "antd";
 import { useSidebarContext } from "@/context/SidebarContext";
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import bg from "@/public/bg2.jpg";
 
 const Login = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const { isLoggedIn } = useSidebarContext();
+  const { isLoggedIn, login } = useSidebarContext();
 
   // Redirect to main page if user is already logged in
-  useEffect(() => {
-    if (isLoggedIn) {
-      router.push("/");
-    }
-  }, [isLoggedIn, router]);
 
   const onFinish = values => {
     const { username, password } = values;
@@ -26,9 +21,8 @@ const Login = () => {
     };
 
     if (username === user.username && password === user.password) {
-      // Set login status in local storage
       localStorage.setItem("isLoggedIn", true);
-      // Redirect to the main page
+      login();
       router.push("/");
     } else {
       console.log("Login failed");

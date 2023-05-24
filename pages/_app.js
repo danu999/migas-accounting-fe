@@ -8,9 +8,10 @@ export default function App({ Component, pageProps }) {
   const { isLoggedIn } = useSidebarContext();
 
   useEffect(() => {
-    if (!isLoggedIn && router.pathname !== "/login") {
-      // Redirect to /login page if user is not logged in
+    if (!isLoggedIn) {
       router.push("/login");
+    } else {
+      router.push("/");
     }
   }, [isLoggedIn, router]);
 
