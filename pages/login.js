@@ -22,7 +22,7 @@ const Login = () => {
     const { username, password } = values;
     const user = {
       username: "onta",
-      password: "onta123",
+      password: "onta",
     };
 
     if (username === user.username && password === user.password) {

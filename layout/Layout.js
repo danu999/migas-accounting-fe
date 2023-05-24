@@ -7,19 +7,14 @@ const Layout = ({ children }) => {
   const { isLoggedIn } = useSidebarContext();
   const router = useRouter();
 
-  // if (!isLoggedIn) {
-  //   return null;
-  // }
-
   useEffect(() => {
     if (!isLoggedIn && router.pathname !== "/login") {
-      // Redirect to /login page if user is not logged in
       router.push("/login");
     }
   }, [isLoggedIn, router]);
 
-  if (!isLoggedIn) {
-    return null; // Render nothing if user is not logged in
+  if (router.pathname === "/login" || !isLoggedIn) {
+    return null; // Render nothing if the current page is /login or user is not logged in
   }
 
   return (

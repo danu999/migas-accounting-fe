@@ -12,11 +12,6 @@ const SidebarProvider = ({ children }) => {
   const [isCollapsed, setCollapse] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
-  const user = {
-    username: "onta",
-    password: "onta",
-  };
-
   const toggleSidebarcollapse = () => {
     setCollapse(prevState => !prevState);
   };
@@ -25,19 +20,9 @@ const SidebarProvider = ({ children }) => {
     setLoggedIn(true);
   };
 
-  // useEffect(() => {
-  //   // Check if user is logged in from localStorage
-  //   const isLoggedIn = localStorage.getItem("isLoggedIn");
-  //   if (isLoggedIn) {
-  //     setLogin(true);
-  //   } else {
-  //     setLogin(false);
-  //   }
-  // }, []);
-
   return (
     <SidebarContext.Provider
-      value={{ isCollapsed, toggleSidebarcollapse, user, isLoggedIn, login }}
+      value={{ isCollapsed, toggleSidebarcollapse, isLoggedIn, login }}
     >
       {children}
     </SidebarContext.Provider>
